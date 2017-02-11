@@ -18,7 +18,6 @@ namespace PSTodos.Api
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             IoC.Init();
-
             DependencyResolver.SetResolver(new IoCDependencyResolver());
 
             AutoMapperConfig.RegisterMappings();

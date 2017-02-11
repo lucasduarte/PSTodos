@@ -27,6 +27,10 @@ namespace PSTodos.Infrastructure.Repository.EF
                 .IsRequired()
                 .HasColumnAnnotation(IndexAnnotation.AnnotationName, new IndexAnnotation(new IndexAttribute("IX_USUARIO_EMAIL", 2) { IsUnique = true }));
 
+            Property(x => x.Nome)
+                .HasColumnName("NOME")
+                .HasMaxLength(250);
+
             Property(x => x.Senha)
                 .HasColumnName("SENHA")
                 .HasMaxLength(50)

@@ -6,6 +6,11 @@ namespace PSTodos.Infrastructure.Repository.EF
 {
     public class PSTodosContext : DbContext
     {
+        public PSTodosContext() :
+            base("PSTodosConnection")
+        {
+
+        }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Perfil> Perfis { get; set; }
         public DbSet<OperacaoUsuario> OperacoesUsuario { get; set; }

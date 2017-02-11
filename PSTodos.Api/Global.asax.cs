@@ -1,4 +1,5 @@
-﻿using PSTodos.Infrastructure.IoC;
+﻿using PSTodos.Application.AutoMapper;
+using PSTodos.Infrastructure.IoC;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -19,6 +20,8 @@ namespace PSTodos.Api
             IoC.Init();
 
             DependencyResolver.SetResolver(new IoCDependencyResolver());
+
+            AutoMapperConfig.RegisterMappings();
         }
     }
 }

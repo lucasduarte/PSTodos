@@ -2,7 +2,7 @@
 
 namespace PSTodos.Infrastructure.Repository.Interfaces
 {
-    public interface IUsuarioPerfil : IBaseRepository<UsuarioPerfilMap>
+    public interface IUsuarioPerfilRepository : IBaseRepository<UsuarioPerfil>
     {
     }
 }

@@ -31,7 +31,7 @@ namespace PSTodos.Infrastructure.Repository.EF
 
             this.HasRequired(x => x.Usuario)
                 .WithMany(x => x.UsuariosPerfil)
-                .HasForeignKey(x => x.UsuarioId)
+                .HasForeignKey(x => x.UsuarioId);
 
         }
     }

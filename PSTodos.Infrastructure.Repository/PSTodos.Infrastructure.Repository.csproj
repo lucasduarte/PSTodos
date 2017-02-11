@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,12 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EF\ContextManager.cs" />
+    <Compile Include="EF\OperacaoUsuarioMap.cs" />
+    <Compile Include="EF\PerfilMap.cs" />
+    <Compile Include="EF\PSTodosContext.cs" />
+    <Compile Include="EF\UsuarioMap.cs" />
+    <Compile Include="EF\UsuarioPerfilMap.cs" />
     <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="Interfaces\IOperacaoUsuarioRepository.cs" />
     <Compile Include="Interfaces\IPerfilRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IUsuarioPerfil.cs" />
     <Compile Include="Interfaces\IUsuarioRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +74,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Seeds\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

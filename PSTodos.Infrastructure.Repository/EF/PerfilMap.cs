@@ -7,7 +7,7 @@ namespace PSTodos.Infrastructure.Repository.EF
     {
         public PerfilMap()
         {
-            ToTable("PERFIL")
+            ToTable("PERFIL");
 
             Property(x => x.Id)
                 .HasColumnName("ID_PERFIL")

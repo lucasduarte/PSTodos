@@ -9,7 +9,7 @@ namespace PSTodos.Infrastructure.Repository.EF
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Perfil> Perfis { get; set; }
         public DbSet<OperacaoUsuario> OperacoesUsuario { get; set; }
-        public DbSet<UsuarioPerfilMap> UsuariosPerfis { get; set; }
+        public DbSet<UsuarioPerfil> UsuariosPerfis { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

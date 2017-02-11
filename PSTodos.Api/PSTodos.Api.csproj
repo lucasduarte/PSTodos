@@ -214,7 +214,16 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PSTodos.Infrastructure.IoC\PSTodos.Infrastructure.IoC.csproj">
+      <Project>{D95AA306-0A0D-43AF-AE5E-6280A1F0D374}</Project>
+      <Name>PSTodos.Infrastructure.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PSTodos.Infrastructure.Repository\PSTodos.Infrastructure.Repository.csproj">
+      <Project>{8007A3D6-3503-4816-B014-B12649782055}</Project>
+      <Name>PSTodos.Infrastructure.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

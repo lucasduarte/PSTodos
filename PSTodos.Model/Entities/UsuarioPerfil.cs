@@ -1,6 +1,6 @@
 ﻿namespace PSTodos.Model.Entities
 {
-    public class UsuarioPerfil
+    public class UsuarioPerfil : EntityBase
     {
         public int UsuarioId { get; set; }
         public virtual Usuario Usuario { get; set; }

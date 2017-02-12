@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using PSTodos.Application.ViewModels;
 using PSTodos.Infrastructure.Repository.Interfaces;
+using PSTodos.Model.Entities;
+using System.Collections.Generic;
 
 namespace PSTodos.Application
 {
@@ -16,6 +18,42 @@ namespace PSTodos.Application
         public UsuarioViewModel Obter(int id)
         {
             return Mapper.Map<UsuarioViewModel>(_usuarioRepository.GetById(id));
+        }
+
+        public IEnumerable<UsuarioViewModel> Listar()
+        {
+            return Mapper.Map<IEnumerable<UsuarioViewModel>>(_usuarioRepository.GetAll());
+        }
+
+        public UsuarioViewModel Cadastrar(UsuarioViewModel usuarioVM)
+        {
+            var usuario = Mapper.Map<Usuario>(usuarioVM);         
+              
+            BeginTransaction();
+            var result = _usuarioRepository.Add(usuario);
+            Commit();
+
+            return Mapper.Map<UsuarioViewModel>(result);
+        }
+
+        public bool Atualizar(UsuarioViewModel usuarioVM, int id)
+        {
+            var usuario = Mapper.Map<Usuario>(usuarioVM);
+
+            BeginTransaction();
+            var result = _usuarioRepository.Update(usuario, id);
+            Commit();
+
+            return result != null;
+        }
+
+        public bool Deletar(int id)
+        {
+            BeginTransaction();
+            var result = _usuarioRepository.Remove(id);
+            Commit();
+
+            return result;
         }
     }
 }

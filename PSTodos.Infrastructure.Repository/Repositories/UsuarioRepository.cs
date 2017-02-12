@@ -13,10 +13,10 @@ namespace PSTodos.Infrastructure.Repository.Repositories
             _usuarioRepository = usuarioRepository;
         }
 
-        public override void Add(Usuario obj)
+        public override Usuario Add(Usuario obj)
         {
             obj.DtInclusao = DateTime.Now;
-            base.Add(obj);
+           return base.Add(obj);
         }
     }
 }

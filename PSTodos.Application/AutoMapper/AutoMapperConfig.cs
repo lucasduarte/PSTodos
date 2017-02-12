@@ -11,6 +11,7 @@ namespace PSTodos.Application.AutoMapper
             Mapper.Initialize(config =>
             {
                 config.CreateMap<Usuario, UsuarioViewModel>();
+                config.CreateMap<UsuarioViewModel, Usuario>();
             });
         }
     }

@@ -1,8 +1,6 @@
 ﻿using PSTodos.Application.AutoMapper;
 using PSTodos.Infrastructure.IoC;
 using System.Web.Http;
-using System.Web.Mvc;
-using System.Web.Routing;
 
 namespace PSTodos.Api
 {
@@ -10,11 +8,8 @@ namespace PSTodos.Api
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            //BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
             NinjectHttpContainer.RegisterModules(NinjectHttpModules.Modules);
 

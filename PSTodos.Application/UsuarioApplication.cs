@@ -20,6 +20,11 @@ namespace PSTodos.Application
             return Mapper.Map<UsuarioViewModel>(_usuarioRepository.GetById(id));
         }
 
+        public UsuarioViewModel ObterComPerfil(int id)
+        {
+            return Mapper.Map<UsuarioViewModel>(_usuarioRepository.ObterComPerfil(id));
+        }
+
         public IEnumerable<UsuarioViewModel> Listar()
         {
             return Mapper.Map<IEnumerable<UsuarioViewModel>>(_usuarioRepository.GetAll());

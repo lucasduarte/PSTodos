@@ -12,7 +12,7 @@ namespace PSTodos.Model.Entities
         public bool Ativo { get; set; }
         public DateTime DtInclusao { get; set; }
 
-        public ICollection<OperacaoUsuario> OperacoesUsuario { get; set; }
-        public ICollection<UsuarioPerfil> UsuariosPerfil { get; set; }
+        public ICollection<OperacaoUsuario> Operacoes { get; set; }
+        public ICollection<UsuarioPerfil> Perfis { get; set; }
     }
 }

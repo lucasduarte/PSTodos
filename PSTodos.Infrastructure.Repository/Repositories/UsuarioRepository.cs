@@ -1,6 +1,8 @@
 ﻿using PSTodos.Infrastructure.Repository.Interfaces;
 using PSTodos.Model.Entities;
 using System;
+using System.Linq;
+using System.Data.Entity;
 
 namespace PSTodos.Infrastructure.Repository.Repositories
 {
@@ -17,6 +19,15 @@ namespace PSTodos.Infrastructure.Repository.Repositories
         {
             obj.DtInclusao = DateTime.Now;
            return base.Add(obj);
+        }
+
+        public Usuario ObterComPerfil(int id)
+        {
+            var result = Context.Usuarios
+                .Include(x => x.Perfis)
+                .FirstOrDefault(x => x.Id == id);
+
+            return result;
         }
     }
 }

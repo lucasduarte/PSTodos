@@ -43,7 +43,7 @@ namespace PSTodos.Api.Controllers
             var result = new GenericResult<UsuarioViewModel>();
             try
             {
-                result.Result = _usuarioApplication.Obter(id);
+                result.Result = _usuarioApplication.ObterComPerfil(id);
                 result.Success = true;
             }
             catch (Exception ex)

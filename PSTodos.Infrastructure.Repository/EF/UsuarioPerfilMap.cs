@@ -21,16 +21,17 @@ namespace PSTodos.Infrastructure.Repository.EF
             this.HasKey(x =>
                 new
                 {
+                    x.Id,
                     x.PerfilId,
                     x.UsuarioId
                 });
 
             this.HasRequired(x => x.Perfil)
-                .WithMany(x => x.UsuariosPerfil)
+                .WithMany(x => x.Usuarios)
                 .HasForeignKey(x => x.PerfilId);
 
             this.HasRequired(x => x.Usuario)
-                .WithMany(x => x.UsuariosPerfil)
+                .WithMany(x => x.Perfis)
                 .HasForeignKey(x => x.UsuarioId);
 
         }

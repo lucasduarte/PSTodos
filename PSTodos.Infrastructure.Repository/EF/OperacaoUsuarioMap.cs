@@ -21,7 +21,7 @@ namespace PSTodos.Infrastructure.Repository.EF
                 .HasColumnName("ID_USUARIO");
 
             this.HasRequired<Usuario>(x => x.Usuario)
-                .WithMany(u => u.OperacoesUsuario)
+                .WithMany(u => u.Operacoes)
                 .HasForeignKey(x => x.UsuarioId);
 
             this.HasKey(x => x.Id);    

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PSTodos.Application.ViewModels
@@ -24,5 +25,7 @@ namespace PSTodos.Application.ViewModels
 
         [Required]
         public DateTime DtInclusao { get; set; }
+
+        public IEnumerable<PerfilViewModel> Perfis { get; set; }
     }
 }

@@ -10,12 +10,12 @@ namespace PSTodos.Infrastructure.Repository.Repositories
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : EntityBase
     {
-        protected DbContext Context { get; private set; }
+        protected PSTodosContext Context { get; private set; }
 
         public BaseRepository()
         {
             var contextManager = ServiceLocator.Current.GetInstance<ContextManager>();
-            Context = contextManager.Context;
+            Context = (PSTodosContext) contextManager.Context;
         }
         public virtual TEntity Add(TEntity obj)
         {

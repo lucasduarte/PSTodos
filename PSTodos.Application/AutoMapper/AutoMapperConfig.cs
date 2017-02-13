@@ -10,11 +10,14 @@ namespace PSTodos.Application.AutoMapper
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<Usuario, UsuarioViewModel>();
+                config.CreateMap<Usuario, UsuarioViewModel>()
                 config.CreateMap<UsuarioViewModel, Usuario>();
 
                 config.CreateMap<Perfil, PerfilViewModel>();
                 config.CreateMap<PerfilViewModel, Perfil>();
+
+                config.CreateMap<UsuarioPerfil, UsuarioPerfilViewModel>();
+                config.CreateMap<UsuarioPerfilViewModel, UsuarioPerfil>();
             });
         }
     }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSTodos.Infrastructure.Repository", "PSTodos.Infrastructure.Repository\PSTodos.Infrastructure.Repository.csproj", "{8007A3D6-3503-4816-B014-B12649782055}"
 EndProject
@@ -20,6 +20,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSTodos.Model", "PSTodos.Model\PSTodos.Model.csproj", "{EA4F9204-8D13-4C9B-B3FA-AAE2E7E29ADE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSTodos.Infrastructure.IoC", "PSTodos.Infrastructure.IoC\PSTodos.Infrastructure.IoC.csproj", "{D95AA306-0A0D-43AF-AE5E-6280A1F0D374}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{48D263C0-E26F-42FB-90FB-21C3E9BDDFC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSTodos.Mvc", "PSTodos.Mvc\PSTodos.Mvc.csproj", "{F391122B-DBA6-4AFA-AE4C-5EC6E33DB13A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,10 @@ Global
 		{D95AA306-0A0D-43AF-AE5E-6280A1F0D374}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D95AA306-0A0D-43AF-AE5E-6280A1F0D374}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D95AA306-0A0D-43AF-AE5E-6280A1F0D374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F391122B-DBA6-4AFA-AE4C-5EC6E33DB13A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F391122B-DBA6-4AFA-AE4C-5EC6E33DB13A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F391122B-DBA6-4AFA-AE4C-5EC6E33DB13A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F391122B-DBA6-4AFA-AE4C-5EC6E33DB13A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +65,6 @@ Global
 		{F1CE2F20-5941-4F4D-81E2-814C91606976} = {39041664-2A60-474F-BDDE-04D114B835B8}
 		{EA4F9204-8D13-4C9B-B3FA-AAE2E7E29ADE} = {BED564C1-1834-476F-B426-8BACE6FF9851}
 		{D95AA306-0A0D-43AF-AE5E-6280A1F0D374} = {8CB8C653-B0DB-4A15-B3E2-03D732B2A68B}
+		{F391122B-DBA6-4AFA-AE4C-5EC6E33DB13A} = {48D263C0-E26F-42FB-90FB-21C3E9BDDFC9}
 	EndGlobalSection
 EndGlobal

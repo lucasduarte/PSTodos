@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using PSTodos.Application.ViewModels;
+using PSTodos.Model.Entities;
 
 namespace PSTodos.Application.AutoMapper
 {
-    class UsuarioPerfilProfile
+    public class UsuarioPerfilProfile : Profile
     {
+        public UsuarioPerfilProfile()
+        {
+            CreateMap<UsuarioPerfil, UsuarioPerfilViewModel>();
+        }
     }
 }

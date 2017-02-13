@@ -13,9 +13,13 @@ namespace PSTodos.Application
         {
             _usuarioPerfilRepository = usuarioPerfilRepository;
         }
-        public UsuarioPerfilViewModel AdicionarPerfil(UsuarioPerfilViewModel usuarioPerfilVM)
+        public UsuarioPerfilViewModel AdicionarPerfil(int usuarioId, int perfilId)
         {
-            var usuario = Mapper.Map<UsuarioPerfilViewModel, UsuarioPerfil>(usuarioPerfilVM);
+            var usuario = new UsuarioPerfil
+            {
+                UsuarioId = usuarioId,
+                PerfilId = perfilId
+            };
 
             BeginTransaction();
             var result = _usuarioPerfilRepository.Add(usuario);
@@ -24,10 +28,10 @@ namespace PSTodos.Application
             return Mapper.Map<UsuarioPerfil,UsuarioPerfilViewModel>(result);
         }
 
-        public bool RemoverPerfil(UsuarioPerfil usuarioPerfilVm)
+        public bool RemoverPerfil(int usuarioId, int perfilId)
         {
             BeginTransaction();
-            var result = _usuarioPerfilRepository.Remover(usuarioPerfilVm.UsuarioId, usuarioPerfilVm.PerfilId);
+            var result = _usuarioPerfilRepository.Remover(usuarioId, perfilId);
             Commit();
 
             return result;

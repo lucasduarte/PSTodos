@@ -10,6 +10,8 @@ namespace PSTodos.Application.AutoMapper
         {
             CreateMap<Usuario, UsuarioViewModel>()
                 .ForSourceMember(x => x.UsuarioPerfis, opt => opt.Ignore());
+
+            CreateMap<UsuarioViewModel, Usuario>();
         }
     }
 }

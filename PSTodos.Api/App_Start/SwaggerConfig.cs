@@ -19,19 +19,17 @@ namespace PSTodos.Api
                         
                         c.SingleApiVersion("v1", "PSTodos.Api");
                         c.IncludeXmlComments(GetXmlCommentsPath());
-                        //
                     })
                 .EnableSwaggerUi(c =>
-                    {
+                {
                         
-                    });
+                });
 
         }
 
-
         protected static string GetXmlCommentsPath()
         {
-            return System.String.Format(@"{0}\bin\WebApiSwagger.XML", System.AppDomain.CurrentDomain.BaseDirectory);
+            return System.String.Format(@"{0}\bin\PSTodos.Api.XML", System.AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }

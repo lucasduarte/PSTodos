@@ -9,24 +9,25 @@ using System.Web.Http;
 
 namespace PSTodos.Api.Controllers
 {
-    public class UsuariosController : ApiController
+    public class PerfisController : ApiController
     {
-        private readonly UsuarioApplication _usuarioApplication;
-        private readonly UsuarioValidator _validator;
+        private readonly PerfilApplication _perfilApplication;
+        private readonly PerfilValidator _validator;
 
-        public UsuariosController(UsuarioApplication usuarioApplication, UsuarioValidator validator)
+        public PerfisController(PerfilApplication perfilApplication, PerfilValidator validator)
         {
-            _usuarioApplication = usuarioApplication;
+            _perfilApplication = perfilApplication;
             _validator = validator;
         }
-        // GET api/usuarios
-        public GenericResult<IEnumerable<UsuarioViewModel>> Get()
+
+        // GET api/perfis
+        public GenericResult<IEnumerable<PerfilViewModel>> Get()
         {
-            var result = new GenericResult<IEnumerable<UsuarioViewModel>>();
+            var result = new GenericResult<IEnumerable<PerfilViewModel>>();
 
             try
             {
-                result.Result = _usuarioApplication.Listar();
+                result.Result = _perfilApplication.Listar();
                 result.Success = true;
             }
             catch (Exception ex)
@@ -37,13 +38,13 @@ namespace PSTodos.Api.Controllers
             return result;
         }
 
-        // GET api/usuarios/5
-        public GenericResult<UsuarioViewModel> Get(int id)
+        // GET api/perfis/5
+        public GenericResult<PerfilViewModel> Get(int id)
         {
-            var result = new GenericResult<UsuarioViewModel>();
+            var result = new GenericResult<PerfilViewModel>();
             try
             {
-                result.Result = _usuarioApplication.Obter(id);
+                result.Result = _perfilApplication.Obter(id);
                 result.Success = true;
             }
             catch (Exception ex)
@@ -54,18 +55,18 @@ namespace PSTodos.Api.Controllers
             return result;
         }
 
-        // POST api/usuarios
+        // POST api/perfis
         [HttpPost]
-        public GenericResult<UsuarioViewModel> Post([FromBody]UsuarioViewModel usuarioVM)
+        public GenericResult<PerfilViewModel> Post([FromBody]PerfilViewModel perfilVM)
         {
-            var result = new GenericResult<UsuarioViewModel>();
+            var result = new GenericResult<PerfilViewModel>();
 
-            var validatorResult = _validator.Validate(usuarioVM);
-            if(validatorResult.IsValid)
+            var validatorResult = _validator.Validate(perfilVM);
+            if (validatorResult.IsValid)
             {
                 try
                 {
-                    result.Result = _usuarioApplication.Cadastrar(usuarioVM);
+                    result.Result = _perfilApplication.Cadastrar(perfilVM);
                     result.Success = true;
                 }
                 catch (Exception ex)
@@ -76,23 +77,23 @@ namespace PSTodos.Api.Controllers
             else
             {
                 result.Errors = validatorResult.GetErrors();
-            }           
+            }
 
             return result;
         }
 
-        // PUT api/usuarios/5
+        // PUT api/perfis/5
         [HttpPut]
-        public GenericResult Put(int id, [FromBody]UsuarioViewModel usuarioVM)
+        public GenericResult Put(int id, [FromBody]PerfilViewModel perfilVM)
         {
             var result = new GenericResult();
 
-            var validatorResult = _validator.Validate(usuarioVM);
+            var validatorResult = _validator.Validate(perfilVM);
             if (validatorResult.IsValid)
             {
                 try
                 {
-                    result.Success = _usuarioApplication.Atualizar(usuarioVM, id);
+                    result.Success = _perfilApplication.Atualizar(perfilVM, id);
                 }
                 catch (Exception ex)
                 {
@@ -107,22 +108,22 @@ namespace PSTodos.Api.Controllers
             return result;
         }
 
-        // DELETE api/usuarios/5
+        // DELETE api/perfis/5
         [HttpDelete]
         public GenericResult Delete(int id)
         {
             var result = new GenericResult();
 
             try
-            {          
-                result.Success = _usuarioApplication.Deletar(id);
+            {
+                result.Success = _perfilApplication.Deletar(id);
             }
             catch (Exception ex)
             {
                 result.Errors = new string[] { ex.Message };
             }
 
-            return result;       
+            return result;
 
         }
     }

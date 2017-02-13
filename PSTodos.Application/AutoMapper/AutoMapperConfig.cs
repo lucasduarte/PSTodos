@@ -12,6 +12,9 @@ namespace PSTodos.Application.AutoMapper
             {
                 config.CreateMap<Usuario, UsuarioViewModel>();
                 config.CreateMap<UsuarioViewModel, Usuario>();
+
+                config.CreateMap<Perfil, PerfilViewModel>();
+                config.CreateMap<PerfilViewModel, Perfil>();
             });
         }
     }

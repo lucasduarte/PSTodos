@@ -3,6 +3,7 @@ using PSTodos.Application.ViewModels;
 using PSTodos.Infrastructure.Repository.Interfaces;
 using PSTodos.Model.Entities;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PSTodos.Application
 {
@@ -22,7 +23,11 @@ namespace PSTodos.Application
 
         public UsuarioViewModel ObterComPerfil(int id)
         {
-            return Mapper.Map<UsuarioViewModel>(_usuarioRepository.ObterComPerfil(id));
+            var query = _usuarioRepository.ObterComPerfil(id);
+            var result = Mapper.Map<UsuarioViewModel>(query);
+            result.Perfis = Mapper.Map<IEnumerable<PerfilViewModel>>(query.UsuarioPerfis.Select(x => x.Perfil));
+
+            return result;
         }
 
         public IEnumerable<UsuarioViewModel> Listar()

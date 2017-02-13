@@ -24,7 +24,7 @@ namespace PSTodos.Infrastructure.Repository.Repositories
         public Usuario ObterComPerfil(int id)
         {
             var result = Context.Usuarios
-                .Include(x => x.Perfis)
+                .Include(x => x.UsuarioPerfis)
                 .FirstOrDefault(x => x.Id == id);
 
             return result;

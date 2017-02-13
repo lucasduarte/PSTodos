@@ -1,23 +1,25 @@
 ﻿using AutoMapper;
-using PSTodos.Application.ViewModels;
-using PSTodos.Model.Entities;
 
 namespace PSTodos.Application.AutoMapper
 {
-    public static class AutoMapperConfig
+    public class AutoMapperConfig //: Profile
     {
         public static void RegisterMappings()
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<Usuario, UsuarioViewModel>()
-                config.CreateMap<UsuarioViewModel, Usuario>();
+                //config.CreateMap<Usuario, UsuarioViewModel>();
+                //config.CreateMap<UsuarioViewModel, Usuario>()
+                //   .ForSourceMember(s => s.Perfis, opt => opt.Ignore());
 
-                config.CreateMap<Perfil, PerfilViewModel>();
-                config.CreateMap<PerfilViewModel, Perfil>();
+                config.AddProfile<UsuarioProfile>();
+                config.AddProfile<PerfilProfile>();
 
-                config.CreateMap<UsuarioPerfil, UsuarioPerfilViewModel>();
-                config.CreateMap<UsuarioPerfilViewModel, UsuarioPerfil>();
+                //config.CreateMap<Perfil, PerfilViewModel>();
+                //config.CreateMap<PerfilViewModel, Perfil>();
+
+                //config.CreateMap<UsuarioPerfil, UsuarioPerfilViewModel>();
+                //config.CreateMap<UsuarioPerfilViewModel, UsuarioPerfil>();
             });
         }
     }

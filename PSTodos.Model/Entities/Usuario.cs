@@ -13,6 +13,6 @@ namespace PSTodos.Model.Entities
         public DateTime DtInclusao { get; set; }
 
         public ICollection<OperacaoUsuario> Operacoes { get; set; }
-        public ICollection<UsuarioPerfil> Perfis { get; set; }
+        public ICollection<UsuarioPerfil> UsuarioPerfis { get; set; }
     }
 }

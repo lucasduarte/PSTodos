@@ -57,6 +57,7 @@
     <Compile Include="PerfilApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioApplication.cs" />
+    <Compile Include="UsuarioPerfilApplication.cs" />
     <Compile Include="ViewModels\PerfilViewModel.cs" />
     <Compile Include="ViewModels\UsuarioPerfilViewModel.cs" />
     <Compile Include="ViewModels\UsuarioViewModel.cs" />

@@ -25,7 +25,7 @@ namespace PSTodos.Application
             var result = _usuarioPerfilRepository.Add(usuario);
             Commit();
 
-            return Mapper.Map<UsuarioPerfil,UsuarioPerfilViewModel>(result);
+            return Mapper.Map<UsuarioPerfilViewModel>(result);
         }
 
         public bool RemoverPerfil(int usuarioId, int perfilId)

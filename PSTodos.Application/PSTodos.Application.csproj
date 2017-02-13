@@ -52,6 +52,7 @@
     <Compile Include="ApplicationBase.cs" />
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="AutoMapper\PerfilProfile.cs" />
+    <Compile Include="AutoMapper\UsuarioPerfilProfile.cs" />
     <Compile Include="AutoMapper\UsuarioProfile.cs" />
     <Compile Include="PerfilApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

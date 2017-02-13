@@ -21,7 +21,6 @@ namespace PSTodos.Infrastructure.Repository.EF
             this.HasKey(x =>
                 new
                 {
-                    x.Id,
                     x.PerfilId,
                     x.UsuarioId
                 });

@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace PSTodos.Infrastructure.Repository.Repositories
 {
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : EntityBase
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
         protected PSTodosContext Context { get; private set; }
 

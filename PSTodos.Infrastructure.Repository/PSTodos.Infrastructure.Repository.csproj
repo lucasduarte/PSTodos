@@ -67,9 +67,21 @@
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IUsuarioPerfilRepository.cs" />
     <Compile Include="Interfaces\IUsuarioRepository.cs" />
-    <Compile Include="Migrations\201702112000233_InitialCreate.cs" />
-    <Compile Include="Migrations\201702112000233_InitialCreate.Designer.cs">
-      <DependentUpon>201702112000233_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201702131110412_Initial.cs" />
+    <Compile Include="Migrations\201702131110412_Initial.Designer.cs">
+      <DependentUpon>201702131110412_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702131250216_AddIdentityToUsuarioPerfil.cs" />
+    <Compile Include="Migrations\201702131250216_AddIdentityToUsuarioPerfil.Designer.cs">
+      <DependentUpon>201702131250216_AddIdentityToUsuarioPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702131259234_AddIdentityToUsuarioPerfil1.cs" />
+    <Compile Include="Migrations\201702131259234_AddIdentityToUsuarioPerfil1.Designer.cs">
+      <DependentUpon>201702131259234_AddIdentityToUsuarioPerfil1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702131303460_RemoveIdentityToUsuarioPerfil.cs" />
+    <Compile Include="Migrations\201702131303460_RemoveIdentityToUsuarioPerfil.Designer.cs">
+      <DependentUpon>201702131303460_RemoveIdentityToUsuarioPerfil.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,8 +105,17 @@
     <Folder Include="Seeds\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702112000233_InitialCreate.resx">
-      <DependentUpon>201702112000233_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702131110412_Initial.resx">
+      <DependentUpon>201702131110412_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702131250216_AddIdentityToUsuarioPerfil.resx">
+      <DependentUpon>201702131250216_AddIdentityToUsuarioPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702131259234_AddIdentityToUsuarioPerfil1.resx">
+      <DependentUpon>201702131259234_AddIdentityToUsuarioPerfil1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702131303460_RemoveIdentityToUsuarioPerfil.resx">
+      <DependentUpon>201702131303460_RemoveIdentityToUsuarioPerfil.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

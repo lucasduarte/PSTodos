@@ -9,7 +9,5 @@ namespace PSTodos.Application.ViewModels
         public int PerfilId { get; set; }
         public virtual Perfil Perfil { get; set; }
         public bool Ativo { get; set; }
-
-
     }
 }

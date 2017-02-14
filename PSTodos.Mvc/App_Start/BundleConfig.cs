@@ -19,15 +19,21 @@ namespace PSTodos.Mvc
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/toastr").Include(
+                    "~/Scripts/toastr.js"
+            ));
+
             bundles.Add(new ScriptBundle("~/bundles/materializecss").Include(
                       "~/Scripts/materialize.min.js",
-                      "~/Scripts/init.js",
-                      "~/Scripts/sweetalert.min.js"));
+                      "~/Scripts/init.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/materialize.min.css",
-                      "~/Content/Site.css",
-                      "~/Content/sweetalert.css"));
+                      "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/toastr").Include(
+                "~/Content/toastr.css"
+            ));
         }
     }
 }

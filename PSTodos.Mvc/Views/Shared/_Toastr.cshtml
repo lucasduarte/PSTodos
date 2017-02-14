@@ -1,0 +1,6 @@
+﻿@using PSTodos.Mvc.Notifications
+@if (TempData.ContainsKey("Toastr"))
+{
+    Toastr toastr = TempData["Toastr"] as Toastr;
+    @ToastrBuilder.ShowToastMessages(toastr);
+}

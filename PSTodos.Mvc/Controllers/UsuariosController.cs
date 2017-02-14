@@ -1,4 +1,6 @@
-﻿using PSTodos.Mvc.RESTServices;
+﻿using PSTodos.Mvc.Extensions;
+using PSTodos.Mvc.Notifications;
+using PSTodos.Mvc.RESTServices;
 using PSTodos.Mvc.ViewModels;
 using System;
 using System.Threading.Tasks;
@@ -30,6 +32,7 @@ namespace PSTodos.Mvc.Controllers
         {
             if(!ModelState.IsValid)
             {
+                this.AddToastMessage("Erro", "Falha ao cadastrar Usuário", ToastType.Error);
                 return View("Create", vm);
             }
 
@@ -37,10 +40,12 @@ namespace PSTodos.Mvc.Controllers
 
             if(result.Success)
             {
+                this.AddToastMessage("Sucesso", "Usuário cadastrado com sucesso", ToastType.Success);
                 return RedirectToAction("Index");
             }
             else
             {
+                this.AddToastMessage("Erro", "Falha ao cadastrar Usuário", ToastType.Error);
                 return View("Create", vm);
             }
         } 
@@ -57,6 +62,7 @@ namespace PSTodos.Mvc.Controllers
         {
             if(!ModelState.IsValid)
             {
+                this.AddToastMessage("Erro", "Falha ao alterar Usuário", ToastType.Error);
                 return View("Edit", vm);
             }
 
@@ -64,10 +70,12 @@ namespace PSTodos.Mvc.Controllers
 
             if(result.Success)
             {
+                this.AddToastMessage("Sucesso", "Usuário alterado com sucesso", ToastType.Success);
                 return RedirectToAction("Index");
             }
             else
             {
+                this.AddToastMessage("Erro", "Falha ao alterar Usuário", ToastType.Error);
                 return View("Edit", vm);
             }
         }
@@ -77,6 +85,7 @@ namespace PSTodos.Mvc.Controllers
         {
             var result = await service.RemoverUsuarioAsync(id);
 
+            this.AddToastMessage("Sucesso", "Usuário removido com sucesso", ToastType.Success);
             return RedirectToAction("Index");
         }
     }

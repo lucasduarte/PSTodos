@@ -7,6 +7,7 @@
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/Content/toastr")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -28,10 +29,13 @@
 
     <div class="section no-pad-bot">
         @RenderBody()      
-    </div>             
+    </div>          
+    
+    @Html.Partial("_Toastr")   
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/materializecss")
+    @Scripts.Render("~/bundles/toastr")
+    @Scripts.Render("~/bundles/materializecss")   
     @RenderSection("scripts", required: false)
 </body>
 </html>

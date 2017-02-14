@@ -156,6 +156,7 @@
     <Compile Include="Controllers\PerfisController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\UsuariosPerfisController.cs" />
+    <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -165,6 +166,9 @@
     <Compile Include="RESTServices\UsuarioPerfilRESTService.cs" />
     <Compile Include="RESTServices\UsuarioRESTService.cs" />
     <Compile Include="Results\GenericResult.cs" />
+    <Compile Include="Notifications\ToastMessage.cs" />
+    <Compile Include="Notifications\Toastr.cs" />
+    <Compile Include="Notifications\ToastType.cs" />
     <Compile Include="Validators\UsuarioValidator.cs" />
     <Compile Include="ViewModels\PerfilViewModel.cs" />
     <Compile Include="ViewModels\UsuarioPerfilViewModel.cs" />
@@ -173,6 +177,8 @@
   <ItemGroup>
     <Content Include="Content\materialize.min.css" />
     <Content Include="Content\sweetalert.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -198,6 +204,9 @@
     <Content Include="fonts\roboto\Roboto-Thin.ttf" />
     <Content Include="fonts\roboto\Roboto-Thin.woff" />
     <Content Include="fonts\roboto\Roboto-Thin.woff2" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="App_Code\ToastrBuilder.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\init.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -212,6 +221,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sweetalert.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -232,6 +243,7 @@
     <Content Include="Views\Perfis\Create.cshtml" />
     <Content Include="Views\Perfis\Edit.cshtml" />
     <Content Include="Views\Perfis\Index.cshtml" />
+    <Content Include="Views\Shared\_Toastr.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

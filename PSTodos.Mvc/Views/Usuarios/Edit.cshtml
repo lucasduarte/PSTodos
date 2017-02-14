@@ -36,7 +36,6 @@
                 <div class="row">
                     <div class="input-field col s6">
                         @Html.CheckBoxFor(m => m.Ativo, new { @type = "checkbox" })
-
                         @Html.LabelFor(m => m.Ativo)
                     </div>
                     <div class="input-field col s6">
@@ -53,56 +52,38 @@
             <h5>Perfis do Usuário</h5>
             <div class="row">
                 <div class="input-field col s10">
-                    <select>
-                        <option value="" disabled selected>Selecione o perfil desejado</option>
-                        <option value="1">Administrator</option>
-                        <option value="2">Superuser</option>
-                    </select>
+                    @{ Html.RenderAction("ListarPerfis", "Perfis"); }
                 </div>
                 <div class="input-field col s2">
                     <button class="waves-effect waves-light btn"><i class="material-icons">add</i></button>
                 </div>
             </div>
             <div class="row">
-                <table class="highlight bordered">
-                    <thead>
-                        <tr>
-                            <th data-field="perfil">Perfil</th>
-                            <th data-field="status">Status</th>
-                            <th data-field="excluir"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Administrador</td>
-                            <td>
-                                <div class="switch">
-                                    <label>
-                                        Inativo
-                                        <input type="checkbox">
-                                        <span class="lever"></span>
-                                        Ativo
-                                    </label>
-                                </div>
-                            </td>
-                            <td><a class="waves-effect waves-light btn red" style="padding: 0 1rem"><i class="material-icons">delete</i></a></td>
-                        </tr>
-                        <tr>
-                            <td>Superuser</td>
-                            <td>
-                                <div class="switch">
-                                    <label>
-                                        Inativo
-                                        <input type="checkbox">
-                                        <span class="lever"></span>
-                                        Ativo
-                                    </label>
-                                </div>
-                            </td>
-                            <td><a class="waves-effect waves-light btn red" style="padding: 0 1rem"><i class="material-icons">delete</i></a></td>
-                        </tr>
-                    </tbody>
-                </table>
+                @if (Model.Perfis.Any())
+                {
+                    <table class="highlight bordered">
+                        <thead>
+                            <tr>
+                                <th data-field="perfil">Perfil</th>
+                                <th data-field="excluir">Remover</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model.Perfis)
+                            {
+                                <tr>
+                                    <td>@item.Nome</td>
+                                    <td><a class="waves-effect waves-light btn red" style="padding: 0 1rem"><i class="material-icons">delete</i></a></td>
+                                </tr>
+                            }                       
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <h5>Nenhum Perfil cadastrado.</h5>
+                }
+                
             </div>
         </div>  
 

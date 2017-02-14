@@ -1,0 +1,10 @@
+﻿@model List<PSTodos.Mvc.ViewModels.PerfilViewModel>
+
+
+<select>
+    <option value="" disabled selected>Selecione o perfil desejado</option>
+    @foreach(var item in Model)
+    {
+        <option value="@item.Id" @(item.Ativo ? "" : "disabled")>@item.Nome @(item.Ativo ? "" : "(Inativo)")</option>
+    }    
+</select>

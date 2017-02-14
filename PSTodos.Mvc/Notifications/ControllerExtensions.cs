@@ -1,7 +1,6 @@
-﻿using PSTodos.Mvc.Notifications;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
-namespace PSTodos.Mvc.Extensions
+namespace PSTodos.Mvc.Notifications
 {
     public static class ControllerExtensions
     {

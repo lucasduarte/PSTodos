@@ -1,12 +1,7 @@
-﻿using PSTodos.Mvc.Extensions;
-using PSTodos.Mvc.Notifications;
+﻿using PSTodos.Mvc.Notifications;
 using PSTodos.Mvc.RESTServices;
 using PSTodos.Mvc.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PSTodos.Mvc.Controllers
@@ -33,7 +28,7 @@ namespace PSTodos.Mvc.Controllers
         {
             if (!ModelState.IsValid)
             {
-                this.AddToastMessage("Erro", "Falha ao cadastrar Perfil", ToastType.Error);
+                this.AddToastMessage("", "Falha ao cadastrar Perfil", ToastType.Error);
                 return View("Create", vm);
             }
 
@@ -41,12 +36,12 @@ namespace PSTodos.Mvc.Controllers
 
             if (result.Success)
             {
-                this.AddToastMessage("Sucesso", "Perfil cadastrado com sucesso", ToastType.Success);
+                this.AddToastMessage("", "Perfil cadastrado com sucesso", ToastType.Success);
                 return RedirectToAction("Index");
             }
             else
             {
-                this.AddToastMessage("Erro", "Falha ao cadastrar Perfil", ToastType.Error);
+                this.AddToastMessage("", "Falha ao cadastrar Perfil", ToastType.Error);
                 return View("Create", vm);
             }
         }
@@ -63,7 +58,7 @@ namespace PSTodos.Mvc.Controllers
         {
             if (!ModelState.IsValid)
             {
-                this.AddToastMessage("Erro", "Falha ao alterar Perfil", ToastType.Error);
+                this.AddToastMessage("", "Falha ao alterar Perfil", ToastType.Error);
                 return View("Edit", vm);
             }
 
@@ -71,12 +66,12 @@ namespace PSTodos.Mvc.Controllers
 
             if (result.Success)
             {
-                this.AddToastMessage("Sucesso", "Perfil alterado com sucesso", ToastType.Success);
+                this.AddToastMessage("", "Perfil alterado com sucesso", ToastType.Success);
                 return RedirectToAction("Index");
             }
             else
             {
-                this.AddToastMessage("Erro", "Falha ao Alterar Perfil", ToastType.Error);
+                this.AddToastMessage("", "Falha ao Alterar Perfil", ToastType.Error);
                 return View("Edit", vm);
             }
         }
@@ -86,7 +81,7 @@ namespace PSTodos.Mvc.Controllers
         {
             var result = await service.RemoverPerfilAsync(id);
 
-            this.AddToastMessage("Sucesso", "Perfil removido com sucesso", ToastType.Success);
+            this.AddToastMessage("", "Perfil removido com sucesso", ToastType.Success);
             return RedirectToAction("Index");
         }
 

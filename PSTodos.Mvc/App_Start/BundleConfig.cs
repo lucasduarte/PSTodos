@@ -20,7 +20,7 @@ namespace PSTodos.Mvc
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/toastr").Include(
-                    "~/Scripts/toastr.js"
+                    "~/Scripts/toastr.min.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/materializecss").Include(
@@ -32,7 +32,7 @@ namespace PSTodos.Mvc
                       "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/toastr").Include(
-                "~/Content/toastr.css"
+                "~/Content/toastr.min.css"
             ));
         }
     }

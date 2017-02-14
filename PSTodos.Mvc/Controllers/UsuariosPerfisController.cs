@@ -1,4 +1,4 @@
-﻿using PSTodos.Mvc.Extensions;
+﻿using PSTodos.Mvc.Notifications;
 using PSTodos.Mvc.Notifications;
 using PSTodos.Mvc.RESTServices;
 using System.Threading.Tasks;
@@ -17,11 +17,11 @@ namespace PSTodos.Mvc.Controllers
 
             if(vm.Success)
             {
-                this.AddToastMessage("Sucesso", "Perfil atribuído ao Usuário", ToastType.Success);
+                this.AddToastMessage("", "Perfil atribuído ao Usuário", ToastType.Success);
             }
             else
             {
-                this.AddToastMessage("Erro", "Falha ao atribuir Perfil ao Usuário", ToastType.Error);
+                this.AddToastMessage("", "Falha ao atribuir Perfil ao Usuário", ToastType.Error);
             }
             return RedirectToAction("Edit", "Usuarios", new { Id = usuarioId });
         }
@@ -34,14 +34,14 @@ namespace PSTodos.Mvc.Controllers
 
             if (vm.Success)
             {
-                this.AddToastMessage("Sucesso", "Perfil removido do Usuário", ToastType.Success);
+                this.AddToastMessage("", "Perfil removido do Usuário", ToastType.Success);
             }
             else
             {
-                this.AddToastMessage("Erro", "Falha ao remover Perfil do Usuário", ToastType.Error);
+                this.AddToastMessage("", "Falha ao remover Perfil do Usuário", ToastType.Error);
             }
 
-            return RedirectToAction("Edit", "Usuarios", new { Id = usuarioId });
+            return RedirectToAction("", "Usuarios", new { Id = usuarioId });
         }
 
     }

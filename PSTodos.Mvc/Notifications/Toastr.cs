@@ -26,7 +26,7 @@ namespace PSTodos.Mvc.Notifications
         {
             ToastMessages = new List<ToastMessage>();
             ShowNewestOnTop = false;
-            ShowCloseButton = false;
+            ShowCloseButton = true;
         }
     }
 }

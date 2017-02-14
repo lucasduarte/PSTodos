@@ -55,7 +55,13 @@
                     @{ Html.RenderAction("ListarPerfis", "Perfis"); }
                 </div>
                 <div class="input-field col s2">
-                    <button class="waves-effect waves-light btn"><i class="material-icons">add</i></button>
+                    @using (Html.BeginForm("AdicionarUsuarioPerfil", "UsuariosPerfis", FormMethod.Post))
+                    {
+                        @Html.Hidden("usuarioId", Model.Id)
+                        <input type="hidden" name="perfilId" id="perfilId" />
+                        <button class="waves-effect waves-light btn" id="adicionar_perfil"><i class="material-icons">add</i></button>
+                    }
+                    
                 </div>
             </div>
             <div class="row">
@@ -69,11 +75,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach(var item in Model.Perfis)
+                            @foreach (var item in Model.Perfis)
                             {
                                 <tr>
                                     <td>@item.Nome</td>
-                                    <td><a class="waves-effect waves-light btn red" style="padding: 0 1rem"><i class="material-icons">delete</i></a></td>
+                                    <td>
+                                        @using (Html.BeginForm("RemoverUsuarioPerfil", "UsuariosPerfis", FormMethod.Post))
+                                        {
+                                            @Html.Hidden("usuarioId", Model.Id)
+                                            @Html.Hidden("perfilId", item.Id)
+                                            <button class="waves-effect waves-light btn red" style="padding: 0 1rem"><i class="material-icons">delete</i></button>
+                                        }                                      
+                                    </td>
                                 </tr>
                             }                       
                         </tbody>
@@ -82,7 +95,7 @@
                 else
                 {
                     <h5>Nenhum Perfil cadastrado.</h5>
-                }
+                    }
                 
             </div>
         </div>  
@@ -96,6 +109,12 @@
         $('input:hidden').each(function (index, element) {
             $(element).appendTo($(element).parent());
         });
+
+        var form = $('#perfil_form');
+
+        $('#perfis').change(function () {
+            $('#perfilId').val($(this).val());
+        })
     </script>
 }
 

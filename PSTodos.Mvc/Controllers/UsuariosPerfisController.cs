@@ -1,19 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PSTodos.Mvc.RESTServices;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace PSTodos.Mvc.Controllers
 {
     public class UsuariosPerfisController : Controller
     {
-        // GET: UsuariosPerfis
-        public ActionResult Index()
+        private UsuarioPerfilRESTService service = new UsuarioPerfilRESTService();
+
+        [HttpPost]
+        public async Task<ActionResult> AdicionarUsuarioPerfil(int usuarioId, int perfilId)
         {
-            return View();
+            var vm = await service.CadastrarUsuarioPerfilAsync(usuarioId, perfilId);
+
+            return RedirectToAction("Edit", "Usuarios", new { Id = usuarioId });
         }
 
+
+        [HttpPost]
+        public async Task<ActionResult> RemoverUsuarioPerfil(int usuarioId, int perfilId)
+        {
+            var vm = await service.RemoverUsuarioPerfilAsync(usuarioId, perfilId);
+
+            return RedirectToAction("Edit", "Usuarios", new { Id = usuarioId });
+        }
 
     }
 }

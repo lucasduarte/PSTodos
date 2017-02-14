@@ -26,7 +26,7 @@ namespace PSTodos.Application
             var query = _usuarioRepository.ObterComPerfil(id);
             var result = Mapper.Map<UsuarioViewModel>(query);
             result.Perfis = Mapper.Map<IEnumerable<PerfilViewModel>>
-                (query.UsuarioPerfis.Select(x => new Perfil { Ativo = x.Ativo, Nome = x.Perfil.Nome }));
+                (query.UsuarioPerfis.Select(x => new Perfil { Id = x.Perfil.Id, Ativo = x.Ativo, Nome = x.Perfil.Nome }));
 
             return result;
         }

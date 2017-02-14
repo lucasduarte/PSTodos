@@ -39,7 +39,6 @@ namespace PSTodos.Api.Controllers
                 result.Errors = new string[] { ex.Message };
             }
            
-
             return result;
         }
 

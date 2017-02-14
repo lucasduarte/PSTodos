@@ -160,10 +160,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RESTServices\BaseRESTService.cs" />
     <Compile Include="RESTServices\PerfilRESTService.cs" />
+    <Compile Include="RESTServices\UsuarioPerfilRESTService.cs" />
     <Compile Include="RESTServices\UsuarioRESTService.cs" />
     <Compile Include="Results\GenericResult.cs" />
     <Compile Include="Validators\UsuarioValidator.cs" />
     <Compile Include="ViewModels\PerfilViewModel.cs" />
+    <Compile Include="ViewModels\UsuarioPerfilViewModel.cs" />
     <Compile Include="ViewModels\UsuarioViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

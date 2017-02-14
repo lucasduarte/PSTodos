@@ -1,0 +1,60 @@
+﻿@model PSTodos.Mvc.ViewModels.UsuarioViewModel
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<div class="section">
+    <div class="container">
+        <h4 style="float: left">Cadastro de Usuário</h4>
+        <div class="row">
+            @using (Html.BeginForm("Create", "Usuarios", FormMethod.Post, new { @class = "col s12", @role="form" }))
+            {        
+                <div class="row">
+                    <div class="input-field col s6">                       
+                        @Html.EditorFor(m => m.Login, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.LabelFor(m => m.Login)
+                        @Html.ValidationMessageFor(m => m.Login)
+                    </div>
+                    <div class="input-field col s6">
+                        @Html.EditorFor(m => m.Nome, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.LabelFor(m => m.Nome)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">                     
+                        @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.LabelFor(m => m.Email, new { @data_error = "Email inválido." })
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                    <div class="input-field col s6">           
+                        @Html.EditorFor(m => m.Senha, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.LabelFor(m => m.Senha)
+                        @Html.ValidationMessageFor(m => m.Senha)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        @Html.CheckBoxFor(m => m.Ativo, new { @type = "checkbox" })
+
+                        @Html.LabelFor(m => m.Ativo)
+                    </div>
+                    <div class="input-field col s6">
+                        <input disabled value="@Model.DtInclusao.ToString("dd/MM/yyyy")" id="dt_inclusao" type="text" class="validate">
+                        <label for="dt_inclusao">Data de Inclusão</label>
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn"><i class="material-icons left">save</i>salvar</button>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        $('input:hidden').each(function (index, element) {
+            $(element).appendTo($(element).parent());
+        });
+    </script>
+}
+

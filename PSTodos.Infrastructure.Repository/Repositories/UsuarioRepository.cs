@@ -29,5 +29,23 @@ namespace PSTodos.Infrastructure.Repository.Repositories
 
             return result;
         }
+
+        public Usuario Atualizar(Usuario obj, int id)
+        {
+            if (obj == null)
+            {
+                return null;
+            }
+
+            Usuario existing = Context.Set<Usuario>().Find(id);
+            if (existing != null)
+            {
+                Context.Entry(existing).CurrentValues.SetValues(obj);
+                Context.Entry(existing).State = EntityState.Modified;
+                Context.Entry(existing).Property(x => x.DtInclusao).IsModified = false;
+            }
+
+            return existing;
+        }
     }
 }

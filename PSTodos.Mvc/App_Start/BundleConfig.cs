@@ -25,7 +25,7 @@ namespace PSTodos.Mvc
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/materialize.min.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
         }
     }
 }

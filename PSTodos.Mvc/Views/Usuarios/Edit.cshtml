@@ -1,0 +1,120 @@
+﻿@model PSTodos.Mvc.ViewModels.UsuarioViewModel
+@{
+    ViewBag.Title = "Alteração";
+}
+
+<div class="section">
+    <div class="container">
+        <h4 style="float: left">Cadastro de Usuário</h4>
+        <div class="row">
+            @using (Html.BeginForm("Edit", "Usuarios", FormMethod.Post, new { @class = "col s12", @role = "form" }))
+            {
+                @Html.HttpMethodOverride(HttpVerbs.Put)
+                <div class="row">
+                    <div class="input-field col s6">
+                        @Html.EditorFor(m => m.Login, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.LabelFor(m => m.Login)
+                        @Html.ValidationMessageFor(m => m.Login)
+                    </div>
+                    <div class="input-field col s6">
+                        @Html.EditorFor(m => m.Nome, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.LabelFor(m => m.Nome)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.LabelFor(m => m.Email, new { @data_error = "Email inválido." })
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                    <div class="input-field col s6">
+                        @Html.EditorFor(m => m.Senha, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.LabelFor(m => m.Senha)
+                        @Html.ValidationMessageFor(m => m.Senha)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        @Html.CheckBoxFor(m => m.Ativo, new { @type = "checkbox" })
+
+                        @Html.LabelFor(m => m.Ativo)
+                    </div>
+                    <div class="input-field col s6">
+                        <input disabled value="@Model.DtInclusao.ToString("dd/MM/yyyy")" id="dt_inclusao" type="text" class="validate">
+                        <label for="dt_inclusao">Data de Inclusão</label>
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn"><i class="material-icons left">save</i>salvar</button>
+            }
+        </div>
+
+        <div class="row">
+            <br><br>
+            <h5>Perfis do Usuário</h5>
+            <div class="row">
+                <div class="input-field col s10">
+                    <select>
+                        <option value="" disabled selected>Selecione o perfil desejado</option>
+                        <option value="1">Administrator</option>
+                        <option value="2">Superuser</option>
+                    </select>
+                </div>
+                <div class="input-field col s2">
+                    <button class="waves-effect waves-light btn"><i class="material-icons">add</i></button>
+                </div>
+            </div>
+            <div class="row">
+                <table class="highlight bordered">
+                    <thead>
+                        <tr>
+                            <th data-field="perfil">Perfil</th>
+                            <th data-field="status">Status</th>
+                            <th data-field="excluir"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Administrador</td>
+                            <td>
+                                <div class="switch">
+                                    <label>
+                                        Inativo
+                                        <input type="checkbox">
+                                        <span class="lever"></span>
+                                        Ativo
+                                    </label>
+                                </div>
+                            </td>
+                            <td><a class="waves-effect waves-light btn red" style="padding: 0 1rem"><i class="material-icons">delete</i></a></td>
+                        </tr>
+                        <tr>
+                            <td>Superuser</td>
+                            <td>
+                                <div class="switch">
+                                    <label>
+                                        Inativo
+                                        <input type="checkbox">
+                                        <span class="lever"></span>
+                                        Ativo
+                                    </label>
+                                </div>
+                            </td>
+                            <td><a class="waves-effect waves-light btn red" style="padding: 0 1rem"><i class="material-icons">delete</i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>  
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        $('input:hidden').each(function (index, element) {
+            $(element).appendTo($(element).parent());
+        });
+    </script>
+}
+

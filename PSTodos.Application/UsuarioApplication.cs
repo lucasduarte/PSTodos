@@ -51,7 +51,7 @@ namespace PSTodos.Application
             var usuario = Mapper.Map<Usuario>(usuarioVM);
 
             BeginTransaction();
-            var result = _usuarioRepository.Update(usuario, id);
+            var result = _usuarioRepository.Atualizar(usuario, id);
             Commit();
 
             return result != null;

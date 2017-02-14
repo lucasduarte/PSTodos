@@ -8,7 +8,7 @@
     <div class="container">
         <h4 style="float: left">Listagem de Usuários</h4>
         <div style="float: right; margin-top: 20px;">
-            <a class="waves-effect waves-light btn teal" href="usuarios_cadastro.html"><i class="material-icons left">add</i>Novo Registro</a>
+            <a class="waves-effect waves-light btn teal" href="@Url.Action("Create", "Usuarios")"><i class="material-icons left">add</i>Novo Registro</a>
         </div>
         <br /><br />
         <table class="highlight bordered">
@@ -20,7 +20,7 @@
                     <th data-field="email">Email</th>
                     <th data-field="senha">Senha</th>
                     <th data-field="ativo">Status</th>
-                    <th data-field="excluir">Excluir</th>
+                    <th data-field="acoes">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,9 +40,19 @@
                             }
                             else
                             {
-                                <td><a class="waves-effect waves-light btn red" style="padding: 0 1rem"><i class="material-icons">delete</i></a></td>
+                                <td class="center-align"><span class="new badge red" data-badge-caption="Inativo" style="float: left"></span></td>
                             }
-                            <td><a class="waves-effect waves-light btn red" style="padding: 0 1rem"><i class="material-icons">delete</i></a></td>
+                            <td>                  
+
+                                @using (Html.BeginForm("Delete", "Usuarios", new { id = item.Id }))
+                                {
+                                    @Html.HttpMethodOverride(HttpVerbs.Delete)
+                                    <a class="waves-effect waves-light btn" style="padding: 0 1rem" href="@Url.Action("Edit", "Usuarios", new { id = item.Id })"><i class="material-icons">edit</i></a>
+                                    <button class="waves-effect waves-light btn red" style="padding: 0 1rem" type="submit"><i class="material-icons">delete</i></button>
+                                }
+
+
+                            </td>
                         </tr>
                     }
                 }

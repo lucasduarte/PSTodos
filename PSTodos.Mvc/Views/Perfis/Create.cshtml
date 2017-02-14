@@ -1,0 +1,36 @@
+﻿@model PSTodos.Mvc.ViewModels.PerfilViewModel
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<div class="section">
+    <div class="container">
+        <h4 style="float: left">Cadastro de Perfil</h4>
+        <div class="row">
+            @using (Html.BeginForm("Create", "Perfis", FormMethod.Post, new { @class = "col s12", @role="form" }))
+            {        
+                <div class="row">
+                    <div class="input-field col s6">
+                        @Html.EditorFor(m => m.Nome, new { htmlAttributes = new { @class = "validate" } })
+                        @Html.LabelFor(m => m.Nome)
+                    </div>
+                    <div class="input-field col s6">
+                        @Html.CheckBoxFor(m => m.Ativo, new { @type = "checkbox" })
+                        @Html.LabelFor(m => m.Ativo)
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn"><i class="material-icons left">save</i>salvar</button>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        $('input:hidden').each(function (index, element) {
+            $(element).appendTo($(element).parent());
+        });
+    </script>
+}
+

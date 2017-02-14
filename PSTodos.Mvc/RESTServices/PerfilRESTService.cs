@@ -22,7 +22,7 @@ namespace PSTodos.Mvc.RESTServices
             }
         }
 
-        public async Task<GenericResult<List<PerfilViewModel>>> ObterPerfilsAsync()
+        public async Task<GenericResult<List<PerfilViewModel>>> ObterPerfisAsync()
         {
             using (var httpClient = new HttpClient())
             {

@@ -1,4 +1,4 @@
-﻿@model List<PSTodos.Mvc.ViewModels.UsuarioViewModel>
+﻿@model List<PSTodos.Mvc.ViewModels.PerfilViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -6,9 +6,9 @@
 
 <div class="section">
     <div class="container">
-        <h4 style="float: left">Listagem de Usuários</h4>
+        <h4 style="float: left">Listagem de Perfis</h4>
         <div style="float: right; margin-top: 20px;">
-            <a class="waves-effect waves-light btn teal" href="@Url.Action("Create", "Usuarios")"><i class="material-icons left">add</i>Novo Registro</a>
+            <a class="waves-effect waves-light btn teal" href="@Url.Action("Create", "Perfis")"><i class="material-icons left">add</i>Novo Registro</a>
         </div>
         <br /><br />
         @if (Model.Any())
@@ -17,11 +17,8 @@
                 <thead>
                     <tr>
                         <th data-field="id">Id</th>
-                        <th data-field="login">Login</th>
-                        <th data-field="nome">Nome</th>
-                        <th data-field="email">Email</th>
-                        <th data-field="senha">Senha</th>
-                        <th data-field="ativo">Status</th>
+                        <th data-field="login">Nome</th>
+                        <th data-field="status">Status</th>
                         <th data-field="acoes">Ações</th>
                     </tr>
                 </thead>
@@ -31,10 +28,7 @@
                         {
                             <tr>
                                 <td>@item.Id</td>
-                                <td>@item.Login</td>
                                 <td>@item.Nome</td>
-                                <td>@item.Email</td>
-                                <td>@item.Senha</td>
                                 @if (item.Ativo)
                                 {
                                     <td class="center-align"><span class="new badge green" data-badge-caption="Ativo" style="float: left"></span></td>
@@ -45,10 +39,10 @@
                                 }
                                 <td>                  
 
-                                    @using (Html.BeginForm("Delete", "Usuarios", new { id = item.Id }))
+                                    @using (Html.BeginForm("Delete", "Perfis", new { id = item.Id }))
                                     {
                                         @Html.HttpMethodOverride(HttpVerbs.Delete)
-                                        <a class="waves-effect waves-light btn" style="padding: 0 1rem" href="@Url.Action("Edit", "Usuarios", new { id = item.Id })"><i class="material-icons">edit</i></a>
+                                        <a class="waves-effect waves-light btn" style="padding: 0 1rem" href="@Url.Action("Edit", "Perfis", new { id = item.Id })"><i class="material-icons">edit</i></a>
                                         <button class="waves-effect waves-light btn red" style="padding: 0 1rem" type="submit"><i class="material-icons">delete</i></button>
                                     }
 

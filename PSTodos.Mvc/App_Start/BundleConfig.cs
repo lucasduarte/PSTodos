@@ -21,11 +21,13 @@ namespace PSTodos.Mvc
 
             bundles.Add(new ScriptBundle("~/bundles/materializecss").Include(
                       "~/Scripts/materialize.min.js",
-                      "~/Scripts/init.js"));
+                      "~/Scripts/init.js",
+                      "~/Scripts/sweetalert.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/materialize.min.css",
-                      "~/Content/Site.css"));
+                      "~/Content/Site.css",
+                      "~/Content/sweetalert.css"));
         }
     }
 }

@@ -7,6 +7,7 @@ Repositório criado para manter e desenvolver o projeto do processo seletivo da 
 - ASP.NET Webforms
 - ASP.NET Core
 - Angular 2
+- SQL Server Express
 
 ## Estrutura do Projeto
 ```

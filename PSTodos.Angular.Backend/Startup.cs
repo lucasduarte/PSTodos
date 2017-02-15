@@ -47,5 +47,4 @@ namespace PSTodos.Angular.Backend
             app.UseStaticFiles();
         }
     }
-    }
 }

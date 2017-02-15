@@ -1,4 +1,4 @@
-export class UsuarioPerfilModel {
+export class UsuarioPerfil {
     public PerfilId: number;
     public UsuarioId: number;
     public Ativo: boolean;

@@ -2,7 +2,6 @@
 Repositório criado para manter e desenvolver o projeto do processo seletivo da empresa Cartão de Todos
 
 ## Tecnologias Utilizadas
-___
 - ASP.NET Web API 2
 - ASP.NET MVC 5
 - ASP.NET Webforms
@@ -10,7 +9,6 @@ ___
 - ASP.NET Core
 
 ## Estrutura do Projeto
-___
 ```
 
 PSTodos/
@@ -38,7 +36,6 @@ PSTodos/
 ```
 
 ## Principais bibliotecas
-___
 - [EntityFramework](https://github.com/aspnet/EntityFramework6)
 - [AutoMapper](https://github.com/AutoMapper/AutoMapper)
 - [Ninject](https://github.com/ninject/Ninject)

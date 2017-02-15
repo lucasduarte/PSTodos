@@ -1,4 +1,4 @@
-# PSTodos
+# Processo Seletivo Cartão de Todos
 Repositório criado para manter e desenvolver o projeto do processo seletivo da empresa Cartão de Todos
 
 ## Tecnologias Utilizadas

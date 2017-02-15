@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace PSTodos.Api
 {
@@ -9,6 +10,9 @@ namespace PSTodos.Api
     {
         public static void Register(HttpConfiguration config)
         {
+            var cors = new EnableCorsAttribute("*", "*", "*");
+
+            config.EnableCors(cors);
             // Web API configuration and services
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             // Web API routes

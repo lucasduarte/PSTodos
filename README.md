@@ -5,8 +5,8 @@ Repositório criado para manter e desenvolver o projeto do processo seletivo da 
 - ASP.NET Web API 2
 - ASP.NET MVC 5
 - ASP.NET Webforms
-- Angular 2
 - ASP.NET Core
+- Angular 2
 
 ## Estrutura do Projeto
 ```

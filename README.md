@@ -13,25 +13,25 @@ Repositório criado para manter e desenvolver o projeto do processo seletivo da 
 ```bash
 
 PSTodos/
-|--Api/
-|  └--PSTodos.Api
+├── Api/
+|   └──PSTodos.Api
 |
-|--Application/
-|  └--PSTodos.Application
+├── Application/
+|   └──PSTodos.Application
 |
-|--Model/
-|  └--PSTodos.Model
+├── Model/
+|   └──PSTodos.Model
 |
-|--Infra/
-|  └--PSTodos.Infrastructure.IoC
-|  └--PSTodos.Infrastructure.Repository
-|--Frontend/
-|  └--Mvc/
-|  |  └--PSTodos.Mvc
-|  |
-|  └--Angular/
-|  |  └--PSTodos.Angular.Frontend
-|  |  └--Pstodos.Angular.Backend
+├── Infra/
+|   ├── PSTodos.Infrastructure.IoC
+|   └── PSTodos.Infrastructure.Repository
+├── Frontend/
+|   └── Mvc/
+|   |  └── PSTodos.Mvc
+|   |
+|   └── Angular/
+|      └── PSTodos.Angular.Frontend
+|      └── Pstodos.Angular.Backend
 
 
 ```

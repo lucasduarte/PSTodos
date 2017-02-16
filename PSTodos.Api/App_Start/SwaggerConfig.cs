@@ -18,7 +18,7 @@ namespace PSTodos.Api
                     {
                         
                         c.SingleApiVersion("v1", "PSTodos.Api");
-                        c.IncludeXmlComments(GetXmlCommentsPath());
+                        //c.IncludeXmlComments(GetXmlCommentsPath());
                     })
                 .EnableSwaggerUi(c =>
                 {

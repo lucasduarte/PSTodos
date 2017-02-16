@@ -14,24 +14,24 @@ Repositório criado para manter e desenvolver o projeto do processo seletivo da 
 
 PSTodos/
 ├── Api/
-|   └──PSTodos.Api
+|   └── PSTodos.Api
 |
 ├── Application/
-|   └──PSTodos.Application
+|   └── PSTodos.Application
 |
 ├── Model/
-|   └──PSTodos.Model
+|   └── PSTodos.Model
 |
 ├── Infra/
 |   ├── PSTodos.Infrastructure.IoC
 |   └── PSTodos.Infrastructure.Repository
 ├── Frontend/
 |   └── Mvc/
-|   |  └── PSTodos.Mvc
+|   |   └── PSTodos.Mvc
 |   |
 |   └── Angular/
-|      └── PSTodos.Angular.Frontend
-|      └── Pstodos.Angular.Backend
+|       └── PSTodos.Angular.Frontend
+|       └── Pstodos.Angular.Backend
 
 
 ```

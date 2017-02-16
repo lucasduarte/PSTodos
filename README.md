@@ -4,7 +4,7 @@ Repositório criado para manter e desenvolver o projeto do processo seletivo da 
 ## Tecnologias Utilizadas
 - ASP.NET Web API 2
 - ASP.NET MVC 5
-- ASP.NET Webforms
+- ASP.NET Web Forms
 - ASP.NET Core
 - Angular 2
 - SQL Server Express
@@ -34,7 +34,7 @@ PSTodos/
     |   └── PSTodos.Mvc
     |
     └── WebForms/
-    |   └── PSTodos.Webforms
+    |   └── PSTodos.WebForms
     |
     └── Angular/
         └── PSTodos.Angular.Frontend

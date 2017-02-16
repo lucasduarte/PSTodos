@@ -1,11 +1,11 @@
 export class Perfil {
-    public Id: number;
-    public Nome: string;
-    public Ativo: boolean;
+    public id: number;
+    public nome: string;
+    public ativo: boolean;
 
     constructor() {
-        this.Id = null;
-        this.Nome = "";
-        this.Ativo = false;
+        this.id = null;
+        this.nome = "";
+        this.ativo = false;
     }
 }

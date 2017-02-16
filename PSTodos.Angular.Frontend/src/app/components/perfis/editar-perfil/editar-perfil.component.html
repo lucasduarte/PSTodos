@@ -1,0 +1,16 @@
+<h4 style="float: left">Alteração de Perfil</h4>
+<div class="row">
+  <form class="col s12">
+      <div class="row">
+          <div class="input-field col s6">
+            <input type="text" name="nome" class="validate" [(ngModel)]="perfil.nome" required maxlength="150" />
+            <label for="nome">Nome</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="checkbox" name="ativo" id="ativo" [(ngModel)]="perfil.ativo">     
+            <label for="ativo">Ativo</label>   
+          </div>
+      </div>
+      <button class="waves-effect waves-light btn" (click)="alterarPerfil()"><i class="material-icons left">save</i>salvar</button>
+  </form>
+</div>

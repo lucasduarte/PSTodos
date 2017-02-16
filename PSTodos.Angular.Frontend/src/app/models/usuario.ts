@@ -1,19 +1,19 @@
 export class Usuario {
-    public Id: number;
-    public Login: string;
-    public Nome: string;
-    public Email: string;
-    public Senha: string;
-    public Ativo: boolean;
-    public DtInclusao: Date;
+    public id: number;
+    public login: string;
+    public nome: string;
+    public email: string;
+    public senha: string;
+    public ativo: boolean;
+    public dtInclusao: Date;
 
     constructor() {
-        this.Id = null;
-        this.Login = "";
-        this.Nome = "";
-        this.Email = "";
-        this.Senha = "";
-        this.Ativo = false;
-        this.DtInclusao = new Date();
+        this.id = null;
+        this.login = "";
+        this.nome = "";
+        this.email = "";
+        this.senha = "";
+        this.ativo = false;
+        this.dtInclusao = new Date();
     }
 }

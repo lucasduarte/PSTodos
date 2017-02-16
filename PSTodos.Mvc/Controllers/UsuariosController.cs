@@ -1,6 +1,6 @@
 ﻿using PSTodos.Mvc.Notifications;
-using PSTodos.Mvc.RESTServices;
-using PSTodos.Mvc.ViewModels;
+using PSTodos.RESTServices;
+using PSTodos.RESTServices.ViewModels;
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;

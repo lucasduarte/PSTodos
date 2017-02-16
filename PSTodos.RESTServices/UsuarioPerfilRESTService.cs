@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
-using PSTodos.Mvc.Results;
-using PSTodos.Mvc.ViewModels;
+using PSTodos.RESTServices.Results;
+using PSTodos.RESTServices.ViewModels;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PSTodos.Mvc.RESTServices
+namespace PSTodos.RESTServices
 {
     public class UsuarioPerfilRESTService : BaseRESTService
     {

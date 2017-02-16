@@ -1,4 +1,4 @@
-﻿namespace PSTodos.Mvc.ViewModels
+﻿namespace PSTodos.RESTServices.ViewModels
 {
     public class UsuarioPerfilViewModel
     {

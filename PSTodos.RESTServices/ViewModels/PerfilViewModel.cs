@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PSTodos.Mvc.ViewModels
+namespace PSTodos.RESTServices.ViewModels
 {
     public class PerfilViewModel
     {

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using PSTodos.Mvc.ViewModels;
 using System.Net.Http;
 using Newtonsoft.Json;
-using PSTodos.Mvc.Results;
 using System.Text;
+using PSTodos.RESTServices.ViewModels;
+using PSTodos.RESTServices.Results;
 
-namespace PSTodos.Mvc.RESTServices
+namespace PSTodos.RESTServices
 {
     public class UsuarioRESTService : BaseRESTService
     {

@@ -161,18 +161,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RESTServices\BaseRESTService.cs" />
-    <Compile Include="RESTServices\PerfilRESTService.cs" />
-    <Compile Include="RESTServices\UsuarioPerfilRESTService.cs" />
-    <Compile Include="RESTServices\UsuarioRESTService.cs" />
-    <Compile Include="Results\GenericResult.cs" />
     <Compile Include="Notifications\ToastMessage.cs" />
     <Compile Include="Notifications\Toastr.cs" />
     <Compile Include="Notifications\ToastType.cs" />
     <Compile Include="Validators\UsuarioValidator.cs" />
-    <Compile Include="ViewModels\PerfilViewModel.cs" />
-    <Compile Include="ViewModels\UsuarioPerfilViewModel.cs" />
-    <Compile Include="ViewModels\UsuarioViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\materialize.min.css" />
@@ -253,6 +245,12 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PSTodos.RESTServices\PSTodos.RESTServices.csproj">
+      <Project>{ED72915B-C155-464B-B6C8-3553EE2109CE}</Project>
+      <Name>PSTodos.RESTServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

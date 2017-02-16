@@ -1,4 +1,4 @@
-﻿namespace PSTodos.Mvc.RESTServices
+﻿namespace PSTodos.RESTServices
 {
     public class BaseRESTService
     {

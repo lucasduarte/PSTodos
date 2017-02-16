@@ -1,4 +1,4 @@
-﻿namespace PSTodos.Mvc.Results
+﻿namespace PSTodos.RESTServices.Results
 {
     public class GenericResult
     {

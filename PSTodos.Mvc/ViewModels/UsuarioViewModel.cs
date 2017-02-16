@@ -1,35 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace PSTodos.Mvc.ViewModels
 {
     public class UsuarioViewModel
     {
-        [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        [MaxLength(20, ErrorMessage = "O campo {0} deve conter no máximo {1} caracteres.")]
         public string Login { get; set; }
 
+        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        [MaxLength(250, ErrorMessage = "O campo {0} deve conter no máximo {1} caracteres.")]
         public string Nome { get; set; }
 
-        [Required]
-        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        [MaxLength(150, ErrorMessage = "O campo {0} deve conter no máximo {1} caracteres.")]
         public string Email { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        [MaxLength(50, ErrorMessage = "O campo {0} deve conter no máximo {1} caracteres.")]
         public string Senha { get; set; }
 
-        [Required]
         public bool Ativo { get; set; }
 
-        [Required]
         public DateTime DtInclusao { get; set; }
-
+        
         public IEnumerable<PerfilViewModel> Perfis { get; set; }
     }
 }

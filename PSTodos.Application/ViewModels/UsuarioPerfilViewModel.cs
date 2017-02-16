@@ -1,6 +1,4 @@
-﻿using PSTodos.Model.Entities;
-
-namespace PSTodos.Application.ViewModels
+﻿namespace PSTodos.Application.ViewModels
 {
     public class UsuarioPerfilViewModel
     {

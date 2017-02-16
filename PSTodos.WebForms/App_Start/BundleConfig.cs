@@ -41,6 +41,21 @@ namespace PSTodos.WebForms
                     Path = "~/Scripts/respond.min.js",
                     DebugPath = "~/Scripts/respond.js",
                 });
+
+            ScriptManager.ScriptResourceMapping.AddDefinition("materialize", new ScriptResourceDefinition
+            {
+                Path = "~/Scripts/materialize.min.js"
+            });
+
+            ScriptManager.ScriptResourceMapping.AddDefinition("init", new ScriptResourceDefinition
+            {
+                Path = "~/Scripts/init.js"
+            });
+
+            ScriptManager.ScriptResourceMapping.AddDefinition("toastr", new ScriptResourceDefinition
+            {
+                Path = "~/Scripts/toastr.js"
+            });
         }
     }
 }

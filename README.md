@@ -10,28 +10,28 @@ Repositório criado para manter e desenvolver o projeto do processo seletivo da 
 - SQL Server Express
 
 ## Estrutura do Projeto
-```
+```bash
 
 PSTodos/
 |--Api/
-|  |--PSTodos.Api
+|  └--PSTodos.Api
 |
 |--Application/
-|  |--PSTodos.Application
+|  └--PSTodos.Application
 |
 |--Model/
-|  |--PSTodos.Model
+|  └--PSTodos.Model
 |
 |--Infra/
-|  |--PSTodos.Infrastructure.IoC
-|  |--PSTodos.Infrastructure.Repository
+|  └--PSTodos.Infrastructure.IoC
+|  └--PSTodos.Infrastructure.Repository
 |--Frontend/
-|  |--Mvc/
-|  |  |--PSTodos.Mvc
+|  └--Mvc/
+|  |  └--PSTodos.Mvc
 |  |
-|  |--Angular/
-|  |  |--PSTodos.Angular.Frontend
-|  |  |--Pstodos.Angular.Backend
+|  └--Angular/
+|  |  └--PSTodos.Angular.Frontend
+|  |  └--Pstodos.Angular.Backend
 
 
 ```

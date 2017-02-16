@@ -36,5 +36,10 @@ namespace PSTodos.Application
 
             return result;
         }
+
+        public UsuarioPerfilViewModel Obter(int usuarioId, int perfilId)
+        {
+            return Mapper.Map<UsuarioPerfilViewModel>(_usuarioPerfilRepository.Obter(usuarioId, perfilId));
+        }
     }
 }

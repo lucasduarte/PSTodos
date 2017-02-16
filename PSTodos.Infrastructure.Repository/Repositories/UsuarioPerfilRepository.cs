@@ -15,7 +15,7 @@ namespace PSTodos.Infrastructure.Repository.Repositories
 
         public bool Remover(int usuarioId, int perfilId)
         {
-            var obj = Context.UsuariosPerfis.FirstOrDefault(x => x.PerfilId == perfilId && x.UsuarioId == usuarioId);
+            var obj = Obter(usuarioId, perfilId);
             if (obj != null)
             {
                 Remove(obj);
@@ -25,6 +25,11 @@ namespace PSTodos.Infrastructure.Repository.Repositories
             {
                 return false;
             }
+        }
+
+        public UsuarioPerfil Obter(int usuarioId, int perfilId)
+        {
+            return Context.UsuariosPerfis.FirstOrDefault(x => x.PerfilId == perfilId && x.UsuarioId == usuarioId);
         }
     }
 }

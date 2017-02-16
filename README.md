@@ -27,19 +27,18 @@ PSTodos/
 |   └── PSTodos.Infrastructure.Repository
 |
 ├── Frontend/
-|   └── RESTServices/
-|   |   └── PSTodos.RESTServices
-|   |
-|   └── Mvc/
-|   |   └── PSTodos.Mvc
-|   |
-|   └── WebForms/
-|   |   └── PSTodos.Webforms
-|   |
-|   └── Angular/
-|       └── PSTodos.Angular.Frontend
-|       └── Pstodos.Angular.Backend
-
+    └── RESTServices/
+    |   └── PSTodos.RESTServices
+    |
+    └── Mvc/
+    |   └── PSTodos.Mvc
+    |
+    └── WebForms/
+    |   └── PSTodos.Webforms
+    |
+    └── Angular/
+        └── PSTodos.Angular.Frontend
+        └── Pstodos.Angular.Backend
 
 ```
 

@@ -5,6 +5,7 @@ using PSTodos.Application;
 using PSTodos.Application.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Web.Http;
 
 namespace PSTodos.Api.Controllers
@@ -20,7 +21,7 @@ namespace PSTodos.Api.Controllers
             _validator = validator;
         }
         // GET api/usuarios
-        public GenericResult<IEnumerable<UsuarioViewModel>> Get()
+        public IHttpActionResult Get()
         {
             var result = new GenericResult<IEnumerable<UsuarioViewModel>>();
 
@@ -28,35 +29,43 @@ namespace PSTodos.Api.Controllers
             {
                 result.Result = _usuarioApplication.Listar();
                 result.Success = true;
+                return Ok(result);
             }
             catch (Exception ex)
             {
                 result.Errors = new string[] { ex.Message };
+                return Content(HttpStatusCode.InternalServerError, result);
             }
-
-            return result;
         }
 
         // GET api/usuarios/5
-        public GenericResult<UsuarioViewModel> Get(int id)
+        public IHttpActionResult Get(int id)
         {
             var result = new GenericResult<UsuarioViewModel>();
             try
             {
                 result.Result = _usuarioApplication.ObterComPerfil(id);
                 result.Success = true;
+
+                if(result.Result == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    return Ok(result);
+                }
             }
             catch (Exception ex)
             {
                 result.Errors = new string[] { ex.Message };
+                return Content(HttpStatusCode.InternalServerError, result);
             }
-
-            return result;
         }
 
         // POST api/usuarios
         [HttpPost]
-        public GenericResult<UsuarioViewModel> Post([FromBody]UsuarioViewModel usuarioVM)
+        public IHttpActionResult Post([FromBody]UsuarioViewModel usuarioVM)
         {
             var result = new GenericResult<UsuarioViewModel>();
 
@@ -67,23 +76,24 @@ namespace PSTodos.Api.Controllers
                 {
                     result.Result = _usuarioApplication.Cadastrar(usuarioVM);
                     result.Success = true;
+                    return Content(HttpStatusCode.Created, result);
                 }
                 catch (Exception ex)
                 {
                     result.Errors = new string[] { ex.Message };
+                    return Content(HttpStatusCode.InternalServerError, result);
                 }
             }
             else
             {
                 result.Errors = validatorResult.GetErrors();
+                return Content(HttpStatusCode.BadRequest, result);
             }           
-
-            return result;
         }
 
         // PUT api/usuarios/5
         [HttpPut]
-        public GenericResult Put(int id, [FromBody]UsuarioViewModel usuarioVM)
+        public IHttpActionResult Put(int id, [FromBody]UsuarioViewModel usuarioVM)
         {
             var result = new GenericResult();
 
@@ -92,38 +102,58 @@ namespace PSTodos.Api.Controllers
             {
                 try
                 {
-                    result.Success = _usuarioApplication.Atualizar(usuarioVM, id);
+                    var entity = _usuarioApplication.Obter(id);
+
+                    if(entity != null)
+                    {
+                        result.Success = _usuarioApplication.Atualizar(usuarioVM, id);
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        result.Success = false;
+                        return Content(HttpStatusCode.NotFound, result);
+                    }
                 }
                 catch (Exception ex)
                 {
                     result.Errors = new string[] { ex.Message };
+                    return Content(HttpStatusCode.InternalServerError, result);
                 }
             }
             else
             {
                 result.Errors = validatorResult.GetErrors();
+                return Content(HttpStatusCode.BadRequest, result);
             }
-
-            return result;
         }
 
         // DELETE api/usuarios/5
         [HttpDelete]
-        public GenericResult Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
             var result = new GenericResult();
 
             try
-            {          
-                result.Success = _usuarioApplication.Deletar(id);
+            {
+                var entity = _usuarioApplication.Obter(id);
+
+                if(entity != null)
+                {
+                    result.Success = _usuarioApplication.Deletar(id);
+                    return Ok(result);
+                }
+                else
+                {
+                    result.Success = false;
+                    return Content(HttpStatusCode.NotFound, result);
+                }       
             }
             catch (Exception ex)
             {
                 result.Errors = new string[] { ex.Message };
+                return Content(HttpStatusCode.InternalServerError, result);
             }
-
-            return result;       
-
         }
     }
 }

@@ -1,10 +1,8 @@
 ﻿using PSTodos.RESTServices;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace PSTodos.WebForms.Perfis
@@ -27,6 +25,17 @@ namespace PSTodos.WebForms.Perfis
             LinkButton btn = (LinkButton)sender;
 
             var vm = Service.Remover(Convert.ToInt32(btn.CommandArgument));
+
+            if(vm.Success)
+            {
+                HttpContext.Current.Items.Add("Success", "Perfil excluído com sucesso.");
+            }
+            else
+            {
+                HttpContext.Current.Items.Add("Error", "Falha ao remover perfil.");
+            }
+
+            Response.Redirect("~/Perfis");
         }
     }
 }

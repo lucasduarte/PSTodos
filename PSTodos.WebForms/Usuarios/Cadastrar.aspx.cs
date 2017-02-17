@@ -32,16 +32,26 @@ namespace PSTodos.WebForms.Usuarios
             var isValid = Validator.TryValidateObject(vm, context, results, true);
 
             if (!isValid)
-            { 
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                        "toastr_message", "toastr.error('Falha ao cadastrar Usuário.', '')", true);
                 return;
             }
             else
             {
                 var result = Service.Cadastrar(vm);
                 if (result.Success)
-                    Response.Redirect("/Usuarios/Editar?id="+result.Result.Id);
+                {
+                    Response.Redirect("/Usuarios/Editar?id=" + result.Result.Id);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(),
+                            "toastr_message", "toastr.success('Usuário cadastrado com sucesso.', '')", true);
+                }                 
                 else
-                    return;
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(),
+                        "toastr_message", "toastr.error('Falha ao cadastrar Usuário.', '')", true);
+                    return;               
+                }       
             }
         }
     }

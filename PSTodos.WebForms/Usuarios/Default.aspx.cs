@@ -27,6 +27,15 @@ namespace PSTodos.WebForms.Usuarios
             LinkButton btn = (LinkButton)sender;
 
             var vm = Service.Remover(Convert.ToInt32(btn.CommandArgument));
+
+            if(vm.Success)
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                    "toastr_message", "toastr.success('Usuário excluído com sucesso.', '')", true);
+            else
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                    "toastr_message", "toastr.error('Falha ao excluir Usuário.', '')", true);
+
+            Response.Redirect("~/Usuarios");
         }
     }
 }

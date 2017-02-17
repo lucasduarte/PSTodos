@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Web;
 using System.Web.UI.WebControls;
 
 namespace PSTodos.WebForms.Usuarios
@@ -54,11 +55,15 @@ namespace PSTodos.WebForms.Usuarios
                     else
                     {
                         Response.Redirect("/Usuarios");
+                        Page.ClientScript.RegisterStartupScript(this.GetType(),
+                            "toastr_message", "toastr.error('Falha ao alterar Usuário.', '')", true);
                     }
                 }
                 else
                 {
                     Response.Redirect("/Usuarios");
+                    Page.ClientScript.RegisterStartupScript(this.GetType(),
+                            "toastr_message", "toastr.error('Falha ao alterar Usuário.', '')", true);
                 }
 
             }
@@ -83,6 +88,8 @@ namespace PSTodos.WebForms.Usuarios
 
             if (!isValid)
             {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                            "toastr_message", "toastr.error('Falha ao alterar Usuário.', '')", true);
                 return;
             }
             else
@@ -91,9 +98,16 @@ namespace PSTodos.WebForms.Usuarios
                 {
                     var result = Service.Editar(Id, vm);
                     if (!result.Success)
+                    {
+                        Page.ClientScript.RegisterStartupScript(this.GetType(),
+                            "toastr_message", "toastr.error('Falha ao alterar Usuário.', '')", true);
                         return;
+                    }
+                        
                 }
                 Response.Redirect("/Usuarios");
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                        "toastr_message", "toastr.success('Usuário alterado com sucesso.', '')", true);
             }
         }
 
@@ -107,11 +121,13 @@ namespace PSTodos.WebForms.Usuarios
 
                 if(vm.Success)
                 {
-                    
+                    Page.ClientScript.RegisterStartupScript(this.GetType(),
+                        "toastr_message", "toastr.success('Perfil adicionado com sucesso.', '')", true);
                 }
                 else
                 {
-                   
+                    Page.ClientScript.RegisterStartupScript(this.GetType(),
+                             "toastr_message", "toastr.error('Falha ao adicionar Perfil.', '')", true);
                 }
 
                 Response.Redirect("/Usuarios/Editar?id=" + usuarioId);
@@ -130,11 +146,13 @@ namespace PSTodos.WebForms.Usuarios
 
                 if (vm.Success)
                 {
-
+                    Page.ClientScript.RegisterStartupScript(this.GetType(),
+                        "toastr_message", "toastr.success('Perfil removido com sucesso.', '')", true);
                 }
                 else
                 {
-
+                    Page.ClientScript.RegisterStartupScript(this.GetType(),
+                             "toastr_message", "toastr.error('Falha ao remover Perfil.', '')", true);
                 }
 
                 Response.Redirect("/Usuarios/Editar?id=" + usuarioId);

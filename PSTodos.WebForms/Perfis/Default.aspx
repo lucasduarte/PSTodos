@@ -1,12 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" MasterPageFile="~/Site.Master" Inherits="PSTodos.WebForms.Usuarios.Default" %>
-
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PSTodos.WebForms.Perfis.Default" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="section">
         <div class="container">
-            <h4 style="float: left">Listagem de Usuários</h4>
+            <h4 style="float: left">Listagem de Perfis</h4>
             <div style="float: right; margin-top: 20px;">
-                <a class="waves-effect waves-light btn teal" href="~/Usuarios/Cadastrar" runat="server"><i class="material-icons left">add</i>Novo Registro</a>
+                <a class="waves-effect waves-light btn teal" runat="server" href="~/Perfis/Cadastrar"><i class="material-icons left">add</i>Novo Registro</a>
             </div>
             <br /><br />
             <% if (Result)
@@ -15,21 +13,17 @@
                     <thead>
                         <tr>
                             <th data-field="id">Id</th>
-                            <th data-field="login">Login</th>
                             <th data-field="nome">Nome</th>
-                            <th data-field="email">Email</th>
                             <th data-field="ativo">Status</th>
                             <th data-field="acoes">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <asp:Repeater ID="rptUsuarios" runat="server">
+                        <asp:Repeater ID="rptPerfis" runat="server">
                             <ItemTemplate>
                                 <tr>
                                     <td><%# Eval("Id") %></td>
-                                    <td><%# Eval("Login") %></td>
                                     <td><%# Eval("Nome") %></td>
-                                    <td><%# Eval("Email") %></td>
                                     <td class="center-align">
                                         <asp:Panel runat="server" Visible='<%# (bool) Eval("Ativo") %>'>
                                             <span class="new badge green" data-badge-caption="Ativo" style="float: left"></span>
@@ -40,11 +34,11 @@
                                     </td>
                                     <td>                  
                                         <a class="waves-effect waves-light btn" style="padding: 0 1rem" 
-                                            href='<%= ResolveClientUrl("~/Usuarios/Editar?id=") %><%# Eval("Id") %>'>
+                                            href='<%= ResolveClientUrl("~/Perfis/Editar?id=") %><%# Eval("Id") %>'>
                                             <i class="material-icons">edit</i>
                                         </a>
-                                        <asp:LinkButton runat="server" class="waves-effect waves-light btn red" 
-                                            style="padding: 0 1rem" type="submit" ID="btnDeletar" OnClick="btnDeletar_Click"
+                                        <asp:LinkButton runat="server" class="waves-effect waves-light btn red" onClick="btnDeletar_Click"
+                                            style="padding: 0 1rem" type="submit" ID="btnDeletar"
                                             CommandArgument='<%# Eval("Id") %>'><i class="material-icons">delete</i></asp:LinkButton>
                                     </td>
                                 </tr>
@@ -55,10 +49,9 @@
             <%} %>
             <% else
                 { %>
+            <br /><br />
                 <h5>Nenhum resultado.</h5>
             <%} %>
         </div>
     </div>
-
-
 </asp:Content>

@@ -50,6 +50,13 @@ namespace PSTodos.WebForms
                 });
 
             ScriptManager.ScriptResourceMapping.AddDefinition(
+                "toastr",
+                new ScriptResourceDefinition
+                {
+                    Path = "~/Scripts/toastr.min.js",
+                });
+
+            ScriptManager.ScriptResourceMapping.AddDefinition(
                 "init",
                 new ScriptResourceDefinition
                 {

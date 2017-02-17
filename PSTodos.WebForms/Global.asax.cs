@@ -43,7 +43,8 @@ namespace PSTodos.WebForms
 
             // 2. Configure the container (register)
             container.Register<IUsuarioRESTService, UsuarioRESTService>();
-
+            container.Register<IPerfilRESTService, PerfilRESTService>();
+            container.Register<IUsuarioPerfilRESTService, UsuarioPerfilRESTService>();
             // Register your Page classes to allow them to be verified and diagnosed.
             RegisterWebPages(container);
 

@@ -49,7 +49,7 @@ namespace PSTodos.Api.Controllers
 
                 if(result.Result == null)
                 {
-                    return NotFound();
+                    return Content(HttpStatusCode.NotFound, result);
                 }
                 else
                 {

@@ -117,6 +117,7 @@ namespace PSTodos.Api.Controllers
                 }
                 catch (Exception ex)
                 {
+                    result.Success = false;
                     result.Errors = new string[] { ex.Message };
                     return Content(HttpStatusCode.InternalServerError, result);
                 }
@@ -151,6 +152,7 @@ namespace PSTodos.Api.Controllers
             }
             catch (Exception ex)
             {
+                result.Success = false;
                 result.Errors = new string[] { ex.Message };
                 return Content(HttpStatusCode.InternalServerError, result);
             }

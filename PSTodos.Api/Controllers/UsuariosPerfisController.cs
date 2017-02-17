@@ -21,7 +21,7 @@ namespace PSTodos.Api.Controllers
 
         // POST api/usuarios/1/perfil/1
         [HttpPost]
-        [Route("api/usuarios/{usuarioId}/perfis/{perfilId}")]
+        [Route("api/Usuarios/{usuarioId}/Perfis/{perfilId}")]
         public IHttpActionResult Post(int usuarioId, int perfilId)
         {
             var result = new GenericResult<UsuarioPerfilViewModel>();
@@ -42,7 +42,7 @@ namespace PSTodos.Api.Controllers
 
         // DELETE api/usuarios/1/perfis/1
         [HttpDelete]
-        [Route("api/usuarios/{usuarioId}/perfis/{perfilId}")]
+        [Route("api/Usuarios/{usuarioId}/Perfis/{perfilId}")]
         public IHttpActionResult Delete(int usuarioId, int perfilId)
         {
             var result = new GenericResult();
@@ -64,6 +64,7 @@ namespace PSTodos.Api.Controllers
             }
             catch (Exception ex)
             {
+                result.Success = false;
                 result.Errors = new string[] { ex.Message };
                 return Content(HttpStatusCode.InternalServerError, result);
             }

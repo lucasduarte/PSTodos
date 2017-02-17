@@ -124,6 +124,7 @@ namespace PSTodos.Api.Controllers
             }
             else
             {
+                result.Success = false;
                 result.Errors = validatorResult.GetErrors();
                 return Content(HttpStatusCode.BadRequest, result);
             }     
@@ -153,6 +154,7 @@ namespace PSTodos.Api.Controllers
             catch (Exception ex)
             {
                 result.Errors = new string[] { ex.Message };
+                result.Success = false;
                 return Content(HttpStatusCode.InternalServerError, result);
             }
         }

@@ -1,18 +1,23 @@
 ﻿using PSTodos.Mvc.Notifications;
 using PSTodos.RESTServices;
 using PSTodos.RESTServices.ViewModels;
-using System.Threading.Tasks;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 
 namespace PSTodos.Mvc.Controllers
 {
     public class PerfisController : Controller
     {
-        private PerfilRESTService service = new PerfilRESTService();
-        // GET: Perfis
-        public async Task<ActionResult> Index()
+        private readonly IPerfilRESTService _service;
+
+        public PerfisController(IPerfilRESTService service)
         {
-            var vm = await service.ObterPerfisAsync();
+            _service = service;
+        }
+        // GET: Perfis
+        public ActionResult Index()
+        {
+            var vm = _service.Listar();
             return View(vm.Result);
         }
 
@@ -24,71 +29,74 @@ namespace PSTodos.Mvc.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(PerfilViewModel vm)
+        public ActionResult Create(PerfilViewModel vm)
         {
             if (!ModelState.IsValid)
             {
-                this.AddToastMessage("", "Falha ao cadastrar Perfil", ToastType.Error);
+                this.AddToastMessage("", "Falha ao cadastrar Perfil.", ToastType.Error);
                 return View("Create", vm);
             }
 
-            var result = await service.CadastrarPerfilAsync(vm);
+            var result = _service.Cadastrar(vm);
 
             if (result.Success)
             {
-                this.AddToastMessage("", "Perfil cadastrado com sucesso", ToastType.Success);
+                this.AddToastMessage("", "Perfil cadastrado com sucesso.", ToastType.Success);
                 return RedirectToAction("Index");
             }
             else
             {
-                this.AddToastMessage("", "Falha ao cadastrar Perfil", ToastType.Error);
+                this.AddToastMessage("", "Falha ao cadastrar Perfil.", ToastType.Error);
                 return View("Create", vm);
             }
         }
 
-        public async Task<ActionResult> Edit(int id)
+        public ActionResult Edit(int id)
         {
-            var vm = await service.ObterPerfil(id);
+            var vm = _service.Obter(id);
 
             return View("Edit", vm.Result);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Edit(int id, PerfilViewModel vm)
+        public ActionResult Edit(int id, PerfilViewModel vm)
         {
             if (!ModelState.IsValid)
             {
-                this.AddToastMessage("", "Falha ao alterar Perfil", ToastType.Error);
+                this.AddToastMessage("", "Falha ao alterar Perfil.", ToastType.Error);
                 return View("Edit", vm);
             }
 
-            var result = await service.EditarPerfilAsync(id, vm);
+            var result = _service.Editar(id, vm);
 
             if (result.Success)
             {
-                this.AddToastMessage("", "Perfil alterado com sucesso", ToastType.Success);
+                this.AddToastMessage("", "Perfil alterado com sucesso.", ToastType.Success);
                 return RedirectToAction("Index");
             }
             else
             {
-                this.AddToastMessage("", "Falha ao Alterar Perfil", ToastType.Error);
+                this.AddToastMessage("", "Falha ao Alterar Perfil.", ToastType.Error);
                 return View("Edit", vm);
             }
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(int id)
+        public ActionResult Delete(int id)
         {
-            var result = await service.RemoverPerfilAsync(id);
+            var result = _service.Remover(id);
 
-            this.AddToastMessage("", "Perfil removido com sucesso", ToastType.Success);
+            if(result.Success)
+                this.AddToastMessage("", "Perfil removido com sucesso.", ToastType.Success);
+            else
+                this.AddToastMessage("", "Falha ao remover perfil.", ToastType.Success);
             return RedirectToAction("Index");
         }
 
         [ChildActionOnly]
         public ActionResult ListarPerfis()
         {
-            var vm =  Task.Run(service.ObterPerfisAsync).Result;
+            var vm = _service.Listar();
             
             return PartialView("_ListarPerfisPartial", vm.Result);
         }

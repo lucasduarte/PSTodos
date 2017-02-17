@@ -9,14 +9,14 @@ namespace PSTodos.WebForms.Usuarios
 {
     public partial class Default : System.Web.UI.Page
     {
-        private UsuarioRESTService _service = new UsuarioRESTService();
+        //private UsuarioRESTService _service = new UsuarioRESTService();
         protected bool Result { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var vm = _service.ObterUsuarios();
-            Result = vm.Result.Any();
-            rptUsuarios.DataSource = vm.Result;
+            var vm = new List<UsuarioViewModel>();// _service.ObterUsuarios();
+            //Result = vm.Result.Any();
+            rptUsuarios.DataSource = vm;
             rptUsuarios.DataBind();
         }
 
@@ -24,7 +24,7 @@ namespace PSTodos.WebForms.Usuarios
         {
             LinkButton btn = (LinkButton)sender;
 
-            var vm = _service.RemoverUsuario(Convert.ToInt32(btn.CommandArgument));
+            //var vm = _service.RemoverUsuario(Convert.ToInt32(btn.CommandArgument));
         }
     }
 }

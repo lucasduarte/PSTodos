@@ -7,14 +7,19 @@ namespace PSTodos.Mvc.Controllers
 {
     public class UsuariosPerfisController : Controller
     {
-        private UsuarioPerfilRESTService service = new UsuarioPerfilRESTService();
+        private readonly IUsuarioPerfilRESTService _service;
+
+        public UsuariosPerfisController(IUsuarioPerfilRESTService service)
+        {
+            _service = service;
+        }
 
         [HttpPost]
-        public async Task<ActionResult> AdicionarUsuarioPerfil(int usuarioId, int perfilId)
+        public ActionResult AdicionarUsuarioPerfil(int usuarioId, int perfilId)
         {
-            var vm = await service.CadastrarUsuarioPerfilAsync(usuarioId, perfilId);
+            var vm = _service.AdicionarPerfil(usuarioId, perfilId);
 
-            if(vm.Success)
+            if (vm.Success)
             {
                 this.AddToastMessage("", "Perfil atribuído ao Usuário", ToastType.Success);
             }
@@ -27,9 +32,9 @@ namespace PSTodos.Mvc.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult> RemoverUsuarioPerfil(int usuarioId, int perfilId)
+        public ActionResult RemoverUsuarioPerfil(int usuarioId, int perfilId)
         {
-            var vm = await service.RemoverUsuarioPerfilAsync(usuarioId, perfilId);
+            var vm = _service.RemoverPerfil(usuarioId, perfilId);
 
             if (vm.Success)
             {
@@ -40,7 +45,7 @@ namespace PSTodos.Mvc.Controllers
                 this.AddToastMessage("", "Falha ao remover Perfil do Usuário", ToastType.Error);
             }
 
-            return RedirectToAction("", "Usuarios", new { Id = usuarioId });
+            return RedirectToAction("Edit", "Usuarios", new { Id = usuarioId });
         }
 
     }

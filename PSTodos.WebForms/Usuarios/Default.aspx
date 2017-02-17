@@ -6,7 +6,7 @@
         <div class="container">
             <h4 style="float: left">Listagem de Usuários</h4>
             <div style="float: right; margin-top: 20px;">
-                <a class="waves-effect waves-light btn teal" href="@Url.Action("Create", "Usuarios")"><i class="material-icons left">add</i>Novo Registro</a>
+                <a class="waves-effect waves-light btn teal" href="#"><i class="material-icons left">add</i>Novo Registro</a>
             </div>
             <br /><br />
             <% if (Result)

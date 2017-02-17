@@ -89,7 +89,7 @@ namespace PSTodos.Mvc.Controllers
             if(result.Success)
                 this.AddToastMessage("", "Perfil removido com sucesso.", ToastType.Success);
             else
-                this.AddToastMessage("", "Falha ao remover perfil.", ToastType.Success);
+                this.AddToastMessage("", "Falha ao remover perfil.", ToastType.Error);
             return RedirectToAction("Index");
         }
 

@@ -1,16 +1,27 @@
 <h4 style="float: left">Alteração de Perfil</h4>
 <div class="row">
-  <form class="col s12">
+  <form #perfilForm="ngForm" (ngSubmit)="alterarPerfil()" class="col s12" novalidate>
       <div class="row">
           <div class="input-field col s6">
-            <input type="text" name="nome" class="validate" [(ngModel)]="perfil.nome" required maxlength="150" />
-            <label for="nome">Nome</label>
+            <input type="text" name="nome" class="validate"
+                   required maxlength="50" id="nome"
+                   [(ngModel)]="perfil.nome" #nome="ngModel"/>
+            <label for="nome" data-success="Ok" [ngClass]="{ 'active': perfil.nome }">Nome</label>
+            <div *ngIf="nome.errors && (nome.dirty || nome.touched)">
+              <div [hidden]="!nome.errors.maxlenght" 
+                    class="red-text">Tamanho máximo de 50 caracteres.
+              </div>
+              <div [hidden]="!nome.errors.required" 
+                    class="red-text">Campo obrigatório.
+              </div>
+            </div>
+            
           </div>
           <div class="input-field col s6">
             <input type="checkbox" name="ativo" id="ativo" [(ngModel)]="perfil.ativo">     
             <label for="ativo">Ativo</label>   
           </div>
       </div>
-      <button class="waves-effect waves-light btn" (click)="alterarPerfil()"><i class="material-icons left">save</i>salvar</button>
+      <button class="waves-effect waves-light btn" type="submit" [disabled]="!perfilForm.valid"><i class="material-icons left">save</i>salvar</button>
   </form>
 </div>

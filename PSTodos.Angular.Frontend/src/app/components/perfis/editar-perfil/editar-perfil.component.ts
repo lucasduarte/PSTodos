@@ -12,7 +12,6 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 })
 export class EditarPerfilComponent implements OnInit {
   public perfil: Perfil = new Perfil();
-
   constructor(private toastr: ToastsManager, vRef: ViewContainerRef, private service: PerfilService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.toastr.setRootViewContainerRef(vRef);
    }
@@ -27,7 +26,11 @@ export class EditarPerfilComponent implements OnInit {
           } else {
             console.log(res.errors);
           }
-        })
+        }, (err) => {
+          this.router.navigate(['/perfis']).then(() =>{
+            this.toastr.error("Falha ao carregar Perfil.");
+           });  
+        });
     });
   }
 
@@ -43,7 +46,6 @@ export class EditarPerfilComponent implements OnInit {
             this.toastr.success("Perfil alterado com sucesso.");
            });      
         } else {
-          alert('Erro ao alterar perfil.');
           this.toastr.error("Falha ao alterar Perfil.");
         }
     });

@@ -27,7 +27,6 @@ export class CadastrarPerfilComponent implements OnInit {
               this.toastr.success("Perfil cadastrado com sucesso.");
           });
         } else {
-          alert('Erro ao cadastrar perfil.');
           this.toastr.error("Falha ao cadastrar Perfil.");
         }
       });

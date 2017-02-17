@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using PSTodos.Mvc.ViewModels;
+using PSTodos.RESTServices.ViewModels;
 
 namespace PSTodos.Mvc.Validators
 {

@@ -1,3 +1,35 @@
-<p>
-  usuarios works!
-</p>
+<h4 style="float: left">Listagem de Usuários</h4>
+<div style="float: right; margin-top: 20px;">
+  <a class="waves-effect waves-light btn teal" routerLink="/usuarios/cadastrar"><i class="material-icons left">add</i>Novo Registro</a>
+</div>
+<br /><br />
+<table class="highlight bordered" *ngIf="usuarios">
+  <thead>
+    <tr>
+      <th data-field="id">Id</th>
+      <th data-field="login">Login</th>
+      <th data-field="nome">Nome</th>
+      <th data-field="email">Email</th>
+      <th data-field="status">Status</th>
+      <th data-field="acoes">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuarios">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.login}}</td>
+        <td>{{usuario.nome}}</td>
+        <td>{{usuario.email}}</td>
+        <td class="center-align">
+          <span *ngIf="usuario.ativo" class="new badge green" data-badge-caption="Ativo" style="float: left; position: relative"></span>
+          <span *ngIf="!usuario.ativo" class="new badge red" data-badge-caption="Inativo" style="float: left; position: relative" ></span>
+        </td>
+        <td>                  
+          <a class="waves-effect waves-light btn" style="padding: 0 1rem" routerLink="/usuarios/{{usuario.id}}"><i class="material-icons">edit</i></a>
+          <button class="waves-effect waves-light btn red" style="padding: 0 1rem" type="submit" (click)="removerUsuario(usuario.id)"><i class="material-icons">delete</i></button>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 *ngIf="!usuarios">Nenhum resultado.</h5>

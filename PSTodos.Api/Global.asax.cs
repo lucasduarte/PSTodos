@@ -12,7 +12,7 @@ namespace PSTodos.Api
 
             NinjectHttpContainer.RegisterModules(NinjectHttpModules.Modules);
 
-            AutoMapperConfig.RegisterMappings();
+            AutoMapperConfig.RegisterMappings();        
         }
     }
 }

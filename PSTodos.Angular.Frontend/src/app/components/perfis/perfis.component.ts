@@ -33,14 +33,13 @@ export class PerfisComponent implements OnInit {
 
   removerPerfil(id: number) {
     this.service.removerPerfil(id)
-      .subscribe((res) => {
+      .subscribe(res => {
         if(res.success) {
           this.carregarPerfis();
           this.toastr.success("Perfil removido com sucesso.");
         } else {
-          console.log(res.errors);
           this.toastr.error("Falha ao remover Perfil.");
         }
-      });
+      }, err => { this.toastr.error("Falha ao remover Perfil.") });
   }
 }

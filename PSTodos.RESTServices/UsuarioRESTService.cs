@@ -1,68 +1,57 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Net.Http;
-using Newtonsoft.Json;
-using System.Text;
 using PSTodos.RESTServices.ViewModels;
 using PSTodos.RESTServices.Results;
+using RestSharp;
 
 namespace PSTodos.RESTServices
 {
     public class UsuarioRESTService : BaseRESTService
     {
-        private readonly  string usuarioUri = apiUri + "/usuarios";
+        private readonly RestClient _restClient;
 
-        public async Task<GenericResult<UsuarioViewModel>> ObterUsuario(int id)
+        public UsuarioRESTService()
         {
-            using (var httpClient = new HttpClient())
-            {
-                return JsonConvert.DeserializeObject<GenericResult<UsuarioViewModel>>(
-                        await httpClient.GetStringAsync(usuarioUri + "/" + id)
-                    );
-            }
+            _restClient = new RestClient(apiUri);
         }
 
-        public async Task<GenericResult<List<UsuarioViewModel>>> ObterUsuariosAsync()
+        public GenericResult<UsuarioViewModel> ObterUsuario(int id)
         {
-            using (var httpClient = new HttpClient())
-            {
-                return JsonConvert.DeserializeObject<GenericResult<List<UsuarioViewModel>>>(
-                        await httpClient.GetStringAsync(usuarioUri)
-                    );
-            }
+            var restRequest = new RestRequest("/Usuarios", Method.GET);
+            restRequest.AddParameter("id", id);
+
+            return _restClient.Execute<GenericResult<UsuarioViewModel>>(restRequest).Data;
         }
 
-        public async Task<GenericResult<UsuarioViewModel>> CadastrarUsuarioAsync(UsuarioViewModel usuarioViewModel)
+        public GenericResult<List<UsuarioViewModel>> ObterUsuarios()
         {
-            var content = JsonConvert.SerializeObject(usuarioViewModel);
+            var restRequest = new RestRequest("/Usuarios", Method.GET);         
 
-            using (var httpClient = new HttpClient())
-            {
-                var response = await httpClient.PostAsync(usuarioUri, new StringContent(content, Encoding.UTF8, "application/json"));
-                return JsonConvert.DeserializeObject<GenericResult<UsuarioViewModel>>(await response.Content.ReadAsStringAsync());
-            }       
+            return _restClient.Execute<GenericResult<List<UsuarioViewModel>>>(restRequest).Data;
         }
 
-        public async Task<GenericResult> EditarUsuarioAsync(int id, UsuarioViewModel usuarioViewModel)
+        public GenericResult<UsuarioViewModel> CadastrarUsuario(UsuarioViewModel usuarioViewModel)
         {
-            var content = JsonConvert.SerializeObject(usuarioViewModel);
+            var restRequest = new RestRequest("/Usuarios", Method.POST);
+            restRequest.AddJsonBody(restRequest);
 
-            using (var httpClient = new HttpClient())
-            {
-                var response = await httpClient.PutAsync(usuarioUri + "/" + id, new StringContent(content, Encoding.UTF8, "application/json"));
-                return JsonConvert.DeserializeObject<GenericResult<UsuarioViewModel>>(await response.Content.ReadAsStringAsync());
-            }
+            return _restClient.Execute<GenericResult<UsuarioViewModel>>(restRequest).Data;
         }
 
-        public async Task<GenericResult> RemoverUsuarioAsync(int id)
+        public GenericResult EditarUsuario(int id, UsuarioViewModel usuarioViewModel)
         {
-            var content = JsonConvert.SerializeObject(new { id = id });
+            var restRequest = new RestRequest("/Usuarios", Method.PUT);
+            restRequest.AddParameter("id", id);
+            restRequest.AddJsonBody(restRequest);
 
-            using (var httpClient = new HttpClient())
-            {
-                var response = await httpClient.DeleteAsync(usuarioUri + "/" + id);
-                return JsonConvert.DeserializeObject<GenericResult<UsuarioViewModel>>(await response.Content.ReadAsStringAsync());
-            }
+            return _restClient.Execute<GenericResult>(restRequest).Data;
+        }
+
+        public GenericResult RemoverUsuario(int id)
+        {
+            var restRequest = new RestRequest("/Usuarios", Method.DELETE);
+            restRequest.AddParameter("id", id);
+
+            return _restClient.Execute<GenericResult>(restRequest).Data;
         }
     }
 }

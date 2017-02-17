@@ -65,7 +65,7 @@
         </div>
         <div class="input-field col s6">
           <input type="text" name="dtInclusao" id="dtInclusao"
-                  [ngModel]="usuario.dtInclusao | date: 'dd/MM/yyyy'" #dtInclusao="ngModel" disabled/>
+                  [ngModel]="usuario.dtInclusao | date: 'dd/MM/yyyy'" #dtInclusao="ngModel" disabled [ngClass]="{'active': usuario.dtInclusao != ''}"/>
           <label for="dtInclusao" data-success="Ok" class="active">Data de Inclusão</label>
         </div>
       </div>

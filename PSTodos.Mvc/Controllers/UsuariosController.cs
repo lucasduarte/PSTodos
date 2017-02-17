@@ -11,9 +11,9 @@ namespace PSTodos.Mvc.Controllers
     {
         private UsuarioRESTService service = new UsuarioRESTService();
 
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            var vm = await service.ObterUsuariosAsync();
+            var vm = service.ObterUsuarios();
 
             return View(vm.Result);
         }
@@ -27,7 +27,7 @@ namespace PSTodos.Mvc.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(UsuarioViewModel vm)
+        public ActionResult Create(UsuarioViewModel vm)
         {
             if(!ModelState.IsValid)
             {
@@ -35,7 +35,7 @@ namespace PSTodos.Mvc.Controllers
                 return View("Create", vm);
             }
 
-            var result = await service.CadastrarUsuarioAsync(vm);
+            var result = service.CadastrarUsuario(vm);
 
             if(result.Success)
             {
@@ -49,15 +49,15 @@ namespace PSTodos.Mvc.Controllers
             }
         } 
 
-        public async Task<ActionResult> Edit(int id)
+        public ActionResult Edit(int id)
         {
-            var vm = await service.ObterUsuario(id);
+            var vm = service.ObterUsuario(id);
 
             return View("Edit", vm.Result);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Edit(int id, UsuarioViewModel vm)
+        public ActionResult Edit(int id, UsuarioViewModel vm)
         {
             if(!ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace PSTodos.Mvc.Controllers
                 return View("Edit", vm);
             }
 
-            var result = await service.EditarUsuarioAsync(id, vm);
+            var result = service.EditarUsuario(id, vm);
 
             if(result.Success)
             {
@@ -80,9 +80,9 @@ namespace PSTodos.Mvc.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(int id)
+        public ActionResult Delete(int id)
         {
-            var result = await service.RemoverUsuarioAsync(id);
+            var result = service.RemoverUsuario(id);
 
             this.AddToastMessage("", "Usuário removido com sucesso", ToastType.Success);
             return RedirectToAction("Index");

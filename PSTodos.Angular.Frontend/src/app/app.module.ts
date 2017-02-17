@@ -22,6 +22,7 @@ import { PerfilService } from './services/perfil.service';
 import { UsuarioPerfilService } from './services/usuario-perfil.service'
 
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {ToastModule} from 'ng2-toastr/ng2-toastr';
     EditarPerfilComponent,
     CadastrarPerfilComponent,
     CadastrarUsuarioComponent,
-    EditarUsuarioComponent
+    EditarUsuarioComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -65,8 +65,8 @@
         </div>
         <div class="input-field col s6">
           <input type="text" name="dtInclusao" id="dtInclusao"
-                  [ngModel]="usuario.dtInclusao | date: 'dd/MM/yyyy'" #dtInclusao="ngModel" disabled [ngClass]="{'active': usuario.dtInclusao != ''}"/>
-          <label for="dtInclusao" data-success="Ok" class="active">Data de Inclusão</label>
+                  [ngModel]="usuario.dtInclusao | date: 'dd/MM/yyyy'" #dtInclusao="ngModel" disabled />
+          <label for="dtInclusao" data-success="Ok" [ngClass]="{'active': true}">Data de Inclusão</label>
         </div>
       </div>
       <button class="waves-effect waves-light btn" type="submit" [disabled]="!usuarioForm.valid"><i class="material-icons left">save</i>salvar</button>
@@ -79,7 +79,7 @@
     <div class="input-field col s10">
       <select materialize="material_select" [materializeSelectOptions]="perfis" name="perfil" (change)="perfil = $event.target.value">
         <option value="" disabled selected>Selecione o perfil desejado</option>
-        <option *ngFor="let perfil of perfis" [value]="perfil.id" [disabled]="!perfil.ativo">{{perfil.nome}}</option> 
+        <option *ngFor="let perfil of perfis" [value]="perfil.id" [disabled]="!perfil.ativo">{{perfil.nome}}{{perfil.ativo ? '' : '(Inativo)'}}</option> 
       </select>
     </div>
     <div class="input-field col s2">

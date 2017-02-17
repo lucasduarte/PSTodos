@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef, NgZone } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsuarioService } from '../../../services/usuario.service';
 import { UsuarioPerfilService } from '../../../services/usuario-perfil.service';
@@ -20,7 +20,7 @@ export class EditarUsuarioComponent implements OnInit {
   constructor(private toastr: ToastsManager, vRef: ViewContainerRef, 
               private service: UsuarioService, private router: Router, 
               private activatedRoute: ActivatedRoute, private perfilService: PerfilService,
-              private usuarioPerfilService: UsuarioPerfilService, private zone: NgZone) { 
+              private usuarioPerfilService: UsuarioPerfilService) { 
     this.toastr.setRootViewContainerRef(vRef);
   }
 

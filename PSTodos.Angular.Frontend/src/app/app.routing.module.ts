@@ -6,12 +6,14 @@ import { EditarUsuarioComponent }   from './components/usuarios/editar-usuario/e
 import { PerfisComponent } from './components/perfis/perfis.component'
 import { EditarPerfilComponent } from './components/perfis/editar-perfil/editar-perfil.component'
 import { CadastrarPerfilComponent } from './components/perfis/cadastrar-perfil/cadastrar-perfil.component'
+import { HomeComponent } from './components/home/home.component';
 
 const appRoutes: Routes = [
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'usuarios/cadastrar', component: CadastrarUsuarioComponent },
   { path: 'usuarios/:id', component: EditarUsuarioComponent },
-  { path: '',   redirectTo: '/usuarios', pathMatch: 'full' },
   { path: 'perfis', component: PerfisComponent },
   { path: 'perfis/cadastrar', component: CadastrarPerfilComponent },
   { path: 'perfis/:id', component: EditarPerfilComponent }

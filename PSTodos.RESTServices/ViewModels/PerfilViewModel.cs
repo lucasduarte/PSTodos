@@ -2,7 +2,7 @@
 
 namespace PSTodos.RESTServices.ViewModels
 {
-    public class PerfilViewModel
+    public class PerfilViewModel : BaseViewModel
     {
         public int Id { get; set; }
 

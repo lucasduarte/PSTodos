@@ -1,32 +1,46 @@
 ﻿using Newtonsoft.Json;
 using PSTodos.RESTServices.Results;
 using PSTodos.RESTServices.ViewModels;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+using RestSharp;
 
 namespace PSTodos.RESTServices
 {
-    public class UsuarioPerfilRESTService : BaseRESTService
+    public class UsuarioPerfilRESTService : BaseRESTService<UsuarioPerfilViewModel>, IUsuarioPerfilRESTService
     {
-        private readonly string usuarioPerfilUri = apiUri + "/usuarios/{0}/perfis/{1}";
-
-        public async Task<GenericResult<UsuarioPerfilViewModel>> CadastrarUsuarioPerfilAsync(int usuarioId, int perfilId)
+        public UsuarioPerfilRESTService()
+            : base("")
         {
-            using (var httpClient = new HttpClient())
+        }
+
+        public GenericResult<UsuarioPerfilViewModel> AdicionarPerfil(int usuarioId, int perfilId)
+        {
+            var restRequest = new RestRequest($"/Usuarios/{usuarioId}/Perfis/{perfilId}", Method.POST);
+
+            var requestResult = _restClient.Execute<GenericResult<UsuarioPerfilViewModel>>(restRequest);
+
+            if (requestResult.Data == null)
             {
-                var response = await httpClient.PostAsync(string.Format(usuarioPerfilUri, usuarioId, perfilId), new StringContent("", Encoding.UTF8, "application/json"));
-                return JsonConvert.DeserializeObject<GenericResult<UsuarioPerfilViewModel>>(await response.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<GenericResult<UsuarioPerfilViewModel>>(requestResult.Content);
+            }
+            else
+            {
+                return requestResult.Data;
             }
         }
 
-        public async Task<GenericResult> RemoverUsuarioPerfilAsync(int usuarioId, int perfilId)
+        public GenericResult RemoverPerfil(int usuarioId, int perfilId)
         {
+            var restRequest = new RestRequest($"/Usuarios/{usuarioId}/Perfis/{perfilId}", Method.DELETE);
 
-            using (var httpClient = new HttpClient())
+            var requestResult = _restClient.Execute<GenericResult>(restRequest);
+
+            if (requestResult.Data == null)
             {
-                var response = await httpClient.DeleteAsync(string.Format(usuarioPerfilUri, usuarioId, perfilId));
-                return JsonConvert.DeserializeObject<GenericResult<PerfilViewModel>>(await response.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<GenericResult>(requestResult.Content);
+            }
+            else
+            {
+                return requestResult.Data;
             }
         }
     }

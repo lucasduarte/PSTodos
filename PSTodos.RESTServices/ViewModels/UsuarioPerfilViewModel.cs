@@ -1,6 +1,6 @@
 ﻿namespace PSTodos.RESTServices.ViewModels
 {
-    public class UsuarioPerfilViewModel
+    public class UsuarioPerfilViewModel : BaseViewModel
     {
         public int UsuarioId { get; set; }
         public virtual UsuarioViewModel Usuario { get; set; }

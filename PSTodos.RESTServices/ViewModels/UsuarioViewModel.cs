@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PSTodos.RESTServices.ViewModels
 {
-    public class UsuarioViewModel
+    public class UsuarioViewModel : BaseViewModel
     {
         public int Id { get; set; }
 

@@ -43,8 +43,8 @@
                                             href='<%= ResolveClientUrl("~/Usuarios/Editar?id=") %><%# Eval("Id") %>'>
                                             <i class="material-icons">edit</i>
                                         </a>
-                                        <asp:LinkButton runat="server" class="waves-effect waves-light btn red" 
-                                            style="padding: 0 1rem" type="submit" ID="btnDeletar" OnClick="btnDeletar_Click"
+                                        <asp:LinkButton runat="server" CssClass="waves-effect waves-light btn red" 
+                                            style="padding: 0 1rem" ID="btnDeletar" OnClick="btnDeletar_Click"
                                             CommandArgument='<%# Eval("Id") %>'><i class="material-icons">delete</i></asp:LinkButton>
                                     </td>
                                 </tr>

@@ -84,7 +84,7 @@
                                         <td><%# Eval("Nome") %></td>
                                         <td>
                                             <asp:LinkButton runat="server" class="waves-effect waves-light btn red" 
-                                                style="padding: 0 1rem" CommandArgument='<%# Eval("Id") %>'><i class="material-icons">delete</i></asp:LinkButton>                                   
+                                                style="padding: 0 1rem" CommandArgument='<%# Eval("Id") %>' OnClick="btnRemoverPerfil_Click"><i class="material-icons">delete</i></asp:LinkButton>                                   
                                         </td>
                                     </tr>
                                 </ItemTemplate>      

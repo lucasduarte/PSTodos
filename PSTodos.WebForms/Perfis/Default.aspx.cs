@@ -2,7 +2,6 @@
 using System;
 using System.ComponentModel.Composition;
 using System.Linq;
-using System.Web;
 using System.Web.UI.WebControls;
 
 namespace PSTodos.WebForms.Perfis
@@ -22,20 +21,24 @@ namespace PSTodos.WebForms.Perfis
 
         protected void btnDeletar_Click(object sender, EventArgs e)
         {
+            
             LinkButton btn = (LinkButton)sender;
 
             var vm = Service.Remover(Convert.ToInt32(btn.CommandArgument));
 
             if(vm.Success)
             {
-                HttpContext.Current.Items.Add("Success", "Perfil excluído com sucesso.");
+                Session["ToastrMsg"] = "Perfil excluído com sucesso.";
+                Session["ToastrType"] = "success";
             }
             else
             {
-                HttpContext.Current.Items.Add("Error", "Falha ao remover perfil.");
+                Session["ToastrMsg"] = "Erro ao excluir Perfil.";
+                Session["ToastrType"] = "error";
             }
 
             Response.Redirect("~/Perfis");
         }
+
     }
 }

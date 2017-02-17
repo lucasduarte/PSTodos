@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
 using System.Web.UI.WebControls;
 
 namespace PSTodos.WebForms.Usuarios
@@ -54,16 +53,16 @@ namespace PSTodos.WebForms.Usuarios
                     }
                     else
                     {
+                        Session["ToastrMsg"] = "Falha ao alterar Usuário.";
+                        Session["ToastrType"] = "error";
                         Response.Redirect("/Usuarios");
-                        Page.ClientScript.RegisterStartupScript(this.GetType(),
-                            "toastr_message", "toastr.error('Falha ao alterar Usuário.', '')", true);
                     }
                 }
                 else
                 {
+                    Session["ToastrMsg"] = "Falha ao alterar Usuário.";
+                    Session["ToastrType"] = "error";
                     Response.Redirect("/Usuarios");
-                    Page.ClientScript.RegisterStartupScript(this.GetType(),
-                            "toastr_message", "toastr.error('Falha ao alterar Usuário.', '')", true);
                 }
 
             }
@@ -88,8 +87,8 @@ namespace PSTodos.WebForms.Usuarios
 
             if (!isValid)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(),
-                            "toastr_message", "toastr.error('Falha ao alterar Usuário.', '')", true);
+                Session["ToastrMsg"] = "Dados inválidos.";
+                Session["ToastrType"] = "warning";
                 return;
             }
             else
@@ -99,15 +98,15 @@ namespace PSTodos.WebForms.Usuarios
                     var result = Service.Editar(Id, vm);
                     if (!result.Success)
                     {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(),
-                            "toastr_message", "toastr.error('Falha ao alterar Usuário.', '')", true);
+                        Session["ToastrMsg"] = "Falha ao alterar Usuário.";
+                        Session["ToastrType"] = "error";
                         return;
                     }
                         
                 }
+                Session["ToastrMsg"] = "Usuário alterado com sucesso.";
+                Session["ToastrType"] = "success";
                 Response.Redirect("/Usuarios");
-                Page.ClientScript.RegisterStartupScript(this.GetType(),
-                        "toastr_message", "toastr.success('Usuário alterado com sucesso.', '')", true);
             }
         }
 
@@ -121,13 +120,13 @@ namespace PSTodos.WebForms.Usuarios
 
                 if(vm.Success)
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(),
-                        "toastr_message", "toastr.success('Perfil adicionado com sucesso.', '')", true);
+                    Session["ToastrMsg"] = "Perfil adicionado com sucesso.";
+                    Session["ToastrType"] = "success";
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(),
-                             "toastr_message", "toastr.error('Falha ao adicionar Perfil.', '')", true);
+                    Session["ToastrMsg"] = "Falha ao adicionar Perfil.";
+                    Session["ToastrType"] = "error";
                 }
 
                 Response.Redirect("/Usuarios/Editar?id=" + usuarioId);
@@ -146,13 +145,13 @@ namespace PSTodos.WebForms.Usuarios
 
                 if (vm.Success)
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(),
-                        "toastr_message", "toastr.success('Perfil removido com sucesso.', '')", true);
+                    Session["ToastrMsg"] = "Perfil removido com sucesso.";
+                    Session["ToastrType"] = "success";
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(),
-                             "toastr_message", "toastr.error('Falha ao remover Perfil.', '')", true);
+                    Session["ToastrMsg"] = "Falha ao remover Perfil.";
+                    Session["ToastrType"] = "error";
                 }
 
                 Response.Redirect("/Usuarios/Editar?id=" + usuarioId);

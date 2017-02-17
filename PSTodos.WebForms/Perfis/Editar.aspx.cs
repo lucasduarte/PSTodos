@@ -30,11 +30,15 @@ namespace PSTodos.WebForms.Perfis
                     }
                     else
                     {
+                        Session["ToastrMsg"] = "Falha ao carregar Perfil.";
+                        Session["ToastrType"] = "error";
                         Response.Redirect("/Perfis");
                     }
                 }
                 else
                 {
+                    Session["ToastrMsg"] = "Falha ao carregar Perfil.";
+                    Session["ToastrType"] = "error";
                     Response.Redirect("/Perfis");
                 }
                 
@@ -57,6 +61,8 @@ namespace PSTodos.WebForms.Perfis
 
             if (!isValid)
             {
+                Session["ToastrMsg"] = "Dados inválidos.";
+                Session["ToastrType"] = "warning";
                 return;
             }
             else
@@ -65,8 +71,24 @@ namespace PSTodos.WebForms.Perfis
                 {
                     var result = Service.Editar(Id, vm);
                     if (!result.Success)
+                    {
+                        Session["ToastrMsg"] = "Falha ao alterar Perfil.";
+                        Session["ToastrType"] = "error";
                         return;
+                    }
+                    else
+                    {
+                        Session["ToastrMsg"] = "Perfil alterado com sucesso.";
+                        Session["ToastrType"] = "success";
+                    }
+                        
                 }
+                else
+                {
+                    Session["ToastrMsg"] = "Falha ao alterar Perfil.";
+                    Session["ToastrType"] = "error";
+                }
+
                 Response.Redirect("/Perfis");
             }
         }

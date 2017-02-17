@@ -31,15 +31,26 @@ namespace PSTodos.WebForms.Perfis
 
             if (!isValid)
             {
+                Session["ToastrMsg"] = "Dados inválidos.";
+                Session["ToastrType"] = "warning";
                 return;
             }
             else
             {
                 var result = Service.Cadastrar(vm);
                 if (result.Success)
+                {
+                    Session["ToastrMsg"] = "Perfil cadastrado com sucesso.";
+                    Session["ToastrType"] = "success";
                     Response.Redirect("/Perfis");
+                }               
                 else
+                {
+                    Session["ToastrMsg"] = "Falha ao cadastrar perfil.";
+                    Session["ToastrType"] = "error";
                     return;
+                }
+                    
             }
         }
     }

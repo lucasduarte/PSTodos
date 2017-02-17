@@ -9,9 +9,16 @@ namespace PSTodos.WebForms
 {
     public partial class SiteMaster : MasterPage
     {
+        public Toastr Toastr { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            Toastr = new Toastr();
+        }
 
+        protected string SetCssClass(string page)
+        {
+            return Request.Url.AbsolutePath.ToLower().Contains(page.ToLower()) ? "active" : "";
         }
     }
 }

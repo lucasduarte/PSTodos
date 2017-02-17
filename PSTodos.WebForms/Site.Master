@@ -44,15 +44,15 @@
 
         <nav class="teal" role="navigation">
             <div class="nav-wrapper container">
-                <a id="logo-container" href="#" class="brand-logo">Cartão de Todos</a>
+                <a id="logo-container" href="/" class="brand-logo">Cartão de Todos</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a runat="server" href="~/Usuarios/Default.aspx">Usuários</a></li>
-                    <li><a runat="server" href="~/Perfis/Default.aspx">Perfis</a></li>
+                    <li class = '<%= SetCssClass("Usuarios") %>'><a runat="server" href="~/Usuarios/Default.aspx">Usuários</a></li>
+                    <li class = '<%= SetCssClass("Perfis") %>'><a runat="server" href="~/Perfis/Default.aspx">Perfis</a></li>
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a runat="server" href="~/Usuarios/Default.aspx">Usuários</a></li>
-                    <li><a runat="server" href="~/Perfis/Default.aspx">Perfis</a></li>
+                    <li class = '<%= SetCssClass("Usuarios") %>'><a runat="server" href="~/Usuarios/Default.aspx">Usuários</a></li>
+                    <li class = '<%= SetCssClass("Perfis") %>'><a runat="server" href="~/Perfis/Default.aspx">Perfis</a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
@@ -61,6 +61,36 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+
     </form>
+    
+    <script type="text/javascript">
+        <% if(Session["ToastrMsg"] != null)
+        { %>
+
+            var msg = '<%= Session["ToastrMsg"] %>';
+            var type = '<%= Session["ToastrType"] %>';    
+
+            if (type.toLowerCase() == 'info') {
+                toastr.options.timeOut = 1000;
+                toastr.tapToDismiss = true;
+                toastr.info(msg);
+            }
+            if (type.toLowerCase() == 'success') {
+                toastr.options.timeOut = 1500;
+                toastr.success(msg);
+            }
+            if (type.toLowerCase() == 'warning') {
+                toastr.options.timeOut = 2000;
+                toastr.warning(msg);
+            }
+            if (type.toLowerCase() == 'error') {
+                toastr.options.timeOut = 3000;
+                toastr.error(msg);
+            }
+
+        <% } Session["ToastrMsg"] = null; Session["ToastrType"] = null; %>
+        
+    </script>
 </body>
 </html>

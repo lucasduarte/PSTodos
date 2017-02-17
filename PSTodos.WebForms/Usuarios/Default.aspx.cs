@@ -29,11 +29,15 @@ namespace PSTodos.WebForms.Usuarios
             var vm = Service.Remover(Convert.ToInt32(btn.CommandArgument));
 
             if(vm.Success)
-                Page.ClientScript.RegisterStartupScript(this.GetType(),
-                    "toastr_message", "toastr.success('Usuário excluído com sucesso.', '')", true);
+            {
+                Session["ToastrMsg"] = "Usuário excluído com sucesso.";
+                Session["ToastrType"] = "success";
+            }
             else
-                Page.ClientScript.RegisterStartupScript(this.GetType(),
-                    "toastr_message", "toastr.error('Falha ao excluir Usuário.', '')", true);
+            {
+                Session["ToastrMsg"] = "Falha ao excluir Usuário.";
+                Session["ToastrType"] = "error";
+            }
 
             Response.Redirect("~/Usuarios");
         }

@@ -33,8 +33,8 @@ namespace PSTodos.WebForms.Usuarios
 
             if (!isValid)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(),
-                        "toastr_message", "toastr.error('Falha ao cadastrar Usuário.', '')", true);
+                Session["ToastrMsg"] = "Dados inválidos.";
+                Session["ToastrType"] = "warning";
                 return;
             }
             else
@@ -42,14 +42,14 @@ namespace PSTodos.WebForms.Usuarios
                 var result = Service.Cadastrar(vm);
                 if (result.Success)
                 {
-                    Response.Redirect("/Usuarios/Editar?id=" + result.Result.Id);
-                    Page.ClientScript.RegisterStartupScript(this.GetType(),
-                            "toastr_message", "toastr.success('Usuário cadastrado com sucesso.', '')", true);
+                    Session["ToastrMsg"] = "Usuário cadastrado com sucesso.";
+                    Session["ToastrType"] = "success";
+                    Response.Redirect("/Usuarios/Editar?id=" + result.Result.Id);           
                 }                 
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(),
-                        "toastr_message", "toastr.error('Falha ao cadastrar Usuário.', '')", true);
+                    Session["ToastrMsg"] = "Falha ao cadastrar Usuário.";
+                    Session["ToastrType"] = "error";
                     return;               
                 }       
             }

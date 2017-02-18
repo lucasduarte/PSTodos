@@ -44,7 +44,7 @@ namespace PSTodos.Mvc.Controllers
             if(result.Success)
             {
                 this.AddToastMessage("", "Usuário cadastrado com sucesso.", ToastType.Success);
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit", new { id = result.Result.Id });
             }
             else
             {

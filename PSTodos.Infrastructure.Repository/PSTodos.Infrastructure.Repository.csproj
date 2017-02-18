@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201702132056195_FixErrors.Designer.cs">
       <DependentUpon>201702132056195_FixErrors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702180124485_ConfigsCascadeOnUsuarioPerfil.cs" />
+    <Compile Include="Migrations\201702180124485_ConfigsCascadeOnUsuarioPerfil.Designer.cs">
+      <DependentUpon>201702180124485_ConfigsCascadeOnUsuarioPerfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -95,6 +99,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702132056195_FixErrors.resx">
       <DependentUpon>201702132056195_FixErrors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702180124485_ConfigsCascadeOnUsuarioPerfil.resx">
+      <DependentUpon>201702180124485_ConfigsCascadeOnUsuarioPerfil.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -78,10 +78,24 @@ A aplicação Web Forms encontra-se configurada para acessar a Api através do p
 > O projeto Angular é servido por uma aplicação ASP.Net CORE, portanto é necessário o Visual Studio 2015 com o update 3 para que a mesma possa ser executada.
 
 O projeto Angular pode ser acessado de duas formas:
+
 1. Caso possua o Visual Studio 2015 update 3, o projeto já se encontra compilado na aplicação **PSTodos.Angular.Backend**.
 2. Caso não possua os requisitos para a primeira opção o projeto pode ser executado através de sua versão não compilada, que se encontra no PSTodos.Angular.Frontend. Para executa-lo é necessário rodar o comando `npm install` e posteriormente o comando `ng serve` para rodar a aplicação em modo debug.
 
 > Caso seja necessário compilar novamente basta utilizar o comando `ng build` na pasta **PSTodos.Angular.Frontend**. Dessa forma ele será compilado e copiado automaticamente para a pasta wwwroot do projeto **PSTodos.Angular.Backend**.
+
+### Projeto RESTServices
+O projeto em questão é utilizado para padronizar o acesso aos endpoints da Api tanto pela aplicação MVC quanto Web Forms
+A url base para acesso a Api se encontra na seção `<appsettings>` do arquivo **Web.Config** dos projetos.
+```xml
+...
+<appSettings>
+...
+    <add key="baseApiUrl" value="http://localhost:50312/api" /> 
+...
+</appSettings>
+...
+```
 
 ### Scripts Banco de Dados
 Todos os scripts encontram-se na pasta **SCRIPTS BANCO**

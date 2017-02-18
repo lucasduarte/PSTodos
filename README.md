@@ -53,9 +53,16 @@ PSTodos/
 - [Swagger](https://github.com/domaindrivendev/Swashbuckle)
 - [SimpleInjector](https://github.com/simpleinjector)
 
-## Instruções para execução das aplicações
+## TODO
+- Padronizar mensagens de erro e informação
+- Aperfeiçoar a validação dos campos
+- Confirmação ao excluir um registro
+- Melhorar o tratamento dos retornos HTTP
+- Implementar métodos de busca paginada
 
-### Banco de dados
+# Instruções para execução das aplicações
+
+## Banco de dados
 > A estrutura dos mapeamentos do Entity Framework quanto os repositórios estão presentes no projeto "PSTodos.Infrastructure.Repository".
 
 Foi utilizado o SQL Server Express no desenvolvimento da Api. As configurações de conexão encontram se no arquivo **Web.Config** do projeto PSTodos.Api. O mesmo deve ser ajustado caso necessário:
@@ -68,13 +75,13 @@ Foi utilizado o SQL Server Express no desenvolvimento da Api. As configurações
 ```
 Posteriormente deve ser utilizado o **Package Manager Console** para rodar o comando `Update-Database` a fim de criar o banco.
 
-### Projeto MVC
+## Projeto MVC
 A aplicação MVC encontra-se configurada para acessar a Api através do projeto **PSTodos.RESTServices**.
 
-### Projeto Web Forms
+## Projeto Web Forms
 A aplicação Web Forms encontra-se configurada para acessar a Api através do projeto **PSTodos.RESTServices**.
 
-### Projeto Angular 2
+## Projeto Angular 2
 > O projeto Angular é servido por uma aplicação ASP.Net CORE, portanto é necessário o Visual Studio 2015 com o update 3 para que a mesma possa ser executada.
 
 O projeto Angular pode ser acessado de duas formas:
@@ -84,7 +91,7 @@ O projeto Angular pode ser acessado de duas formas:
 
 > Caso seja necessário compilar novamente basta utilizar o comando `ng build` na pasta **PSTodos.Angular.Frontend**. Dessa forma ele será compilado e copiado automaticamente para a pasta wwwroot do projeto **PSTodos.Angular.Backend**.
 
-### Projeto RESTServices
+## Projeto RESTServices
 O projeto em questão é utilizado para padronizar o acesso aos endpoints da Api tanto pela aplicação MVC quanto Web Forms
 A url base para acesso a Api se encontra na seção `<appsettings>` do arquivo **Web.Config** dos projetos.
 ```xml
@@ -97,14 +104,6 @@ A url base para acesso a Api se encontra na seção `<appsettings>` do arquivo *
 ...
 ```
 
-### Scripts Banco de Dados
+## Scripts Banco de Dados
 Todos os scripts encontram-se na pasta **SCRIPTS BANCO**
-
-## TODO
-- Padronizar mensagens de erro e informação
-- Aperfeiçoar a validação dos campos
-- Confirmação ao excluir um registro
-- Melhorar o tratamento dos retornos HTTP
-
-
 
